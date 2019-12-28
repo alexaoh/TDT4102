@@ -1,13 +1,11 @@
-// Example program from PPP, page 415
+//Example program from PPP, page 415
 #include "Graph.h"
 #include "Simple_window.h"
-
-int main()
-{
+int main() {
 	using namespace Graph_lib;
-	cout << "The New \" Hello, Graphical World!\" message\n";
-	Point tl{100, 100};
-	Simple_window win{tl, 600, 400, "Canvas"};
+	cout << "The New \"Hello, Graphical World!\" message\n";
+	Point t1{100, 100};
+	Simple_window win{t1, 600, 400, "Canvas"};
 
 	Polygon poly;
 	poly.add(Point{300, 200});
@@ -17,4 +15,5 @@ int main()
 
 	win.attach(poly);
 	win.wait_for_button();
+	
 }
