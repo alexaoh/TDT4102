@@ -47,13 +47,31 @@ int triangleNumbersBelow(int n){
 	return 0;
 }
 
-int isPrime(int n){ //Tipper at dette ikke virker, da denne forventer return int-verdi!
-	for (int j = 2; j < n+2; j++){
+bool isPrime(int n){ 
+	for (int j = 2; j < n; j++){
 		if (n%j == 0){
 			return false;
 		}
 	}
 	return true;
+}
+
+int naivePrimeNumberSearch(int n){
+	for (int number = 2; number < n; number++){
+		if (isPrime(number)){ 
+			cout << number << " is a prime" << endl;
+		}
+	}
+	return 0;
+}
+
+int findGreatestDivisor(int n){
+	for (int divisor = n-1; divisor >= 0; divisor--){
+		if (n%divisor == 0){
+			return divisor;
+		}
+	}
+	return 1;
 }
 
 int main(){
@@ -78,12 +96,27 @@ int main(){
 	cout << triangleNumbersBelow(13) << endl;
 	*/
 	
+	/*
 	cout << "Oppgave f)\n";
-	cout << isPrime(11) << endl;
-	
+	cout << std::boolalpha << isPrime(5) << endl;
+	*/
+	/* Comment: 
+	Without boolalpha the function returns:
+		0 if false
+		1 if true
+	*/
 
+	/*
+	cout << "Oppgave g)\n";
+	naivePrimeNumberSearch(22);
+	*/
 
-	return 0;
+	/*
+	cout << "Oppgave h)\n";
+	cout << findGreatestDivisor(24) << endl;
+	*/
+
+	return 0; //This is here because I think all functions need to return a value. 
 
 
 }
