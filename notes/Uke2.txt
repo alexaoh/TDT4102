@@ -1,0 +1,20 @@
+Tirsdag 07.01.20
+
+Anbefalt å skrive en return nederst i void-funksjoner også (Good practice, readability)
+Bruk return 0 (dersom ingen feil) også i main!
+
+Begynner på kapittel 12
+Litt om grafikk (hello_graphics).
+
+Kapittel 6: 
+Intro to vectors. 
+vector<int> v, for eksempel (en vektor ved navn v, type int). 
+v.push_back() adds an element. 
+vector<myType> vName(5) --> 5 spesifiserer antallet elementer som settes av i minnet fra begynnelsen av. 
+Best å initialisere alltid!
+
+Recommend: int c{3}, for eksempel, to initialize. 
+{} as initializer syntax!
+UNIVERSAL AND UNIFORM INITIALIZATION, PPP p.83
+
+Open_polyline, PPP 13.6
