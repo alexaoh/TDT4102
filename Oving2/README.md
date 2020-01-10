@@ -6,3 +6,5 @@
 **Finish task 2 after I have received the book!**
 
 2. More questions in the code --> many may be solved when I receive the book. 
+
+3. Why does the answers in 6 rely on whether I use rate/100, rate*0.01 or rate*(1/100)?! (E.G in 6b: calculateAnnuity) I would quess it has to do with memory, but I have no clear idea!

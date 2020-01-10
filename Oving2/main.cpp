@@ -214,7 +214,38 @@ void pythagoras(){
 
 //Task 6; Lån med bruk av løkker: 
 
-	//a)
+	//a) 
+vector<int> calculateSeries(int debt, int rate, int years){
+	vector<int> paymentAmount;
+	double amount{0.0};
+	double interest{0.0};
+	double payment{static_cast<double>(debt)/years};
+	for(int i = 1; i <= years; ++i){	
+		interest = debt*rate/100;
+		amount = interest + payment;
+		paymentAmount.push_back(static_cast<int>(amount));
+		debt = debt - payment;
+	}
+	return paymentAmount;
+}
+
+	//b)
+vector<int> calculateAnnuity(int debt, int rate, int years){
+	vector<int> paymentAmount;
+	double amount{debt*((rate*0.01)/static_cast<double>(1-pow(1+(rate*0.01),-years)))};
+	for(int i = 1; i <= years; ++i){
+		paymentAmount.push_back(amount);
+	}
+
+	return paymentAmount;
+}
+
+	//c)
+void printSeriesVsAnnuityTable(){vector<int> series, vector<int> annuity}{
+	//Check the book for easier/nicer formatting of the table!
+	cout << "År " << " Annuitet " << " Serie " << " Differanse " << endl; 
+}
+
 
 int main(){
 	/*
@@ -252,7 +283,25 @@ int main(){
 		}
 	} while (userChoice != 0);
 	*/
-	pythagoras();
+
+	/*
+	//Used to show values in 6a)	
+	vector<int> payment{calculateSeries(10000, 5, 10)};
+	for (auto r : payment){
+		cout << r << endl; 
+	}
+	*/
+	
+	/*
+	//Used to show values in 6b)
+	vector<int> paymentAnnuity{calculateAnnuity(10000, 5, 10)};
+	for (auto r : paymentAnnuity){
+		cout << r << endl; 
+	}
+	*/
+
+
+
 
 	return 0; 
 
