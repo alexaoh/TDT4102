@@ -1,0 +1,37 @@
+Mandag 13.01.20
+
+# Strings
+string.insert(pos,str) --> atd::strings are mutable
+convert to string: to_string(int 13)
+stod() --> string to double
+stoi() --> string to int
+stol() --> string to long
+
+cin reads up to the next white_space character! (including whitespace)
+cin.ignore() skips the rest of the user input line. 
+To solve this: getline(cin, string variable).
+string.cpp from cpp-examples --> see this for examples on string conversion methods as mentioned above also. 
+
+# Graphics
+graph_1.cpp --> Missing scaling
+graph_2.cpp --> Data dependent scaling (improvement) [Finn ut hvorfor y-aksens verdien skaleres som den gjør?!]
+graph_3.cpp --> Avoids "magic constants"; with const and constexpr
+
+# Declarations and header files
+Declarations are often introduced into a program through header files. 
+Allows for abstraction!
+
+# Scope
+Keep names as local as possible!
+Scope operator ::
+
+# Namespace
+Use namespace to organize functions, data, types and classes. 
+
+# Functions and parameter passing
+Chapter 8 in PPP.  
+Pass by value
+Pass by (const) reference
+Example program bug_1.cpp --> PPP 8.5.2, page 275 (Avoid "fall through")
+
+Tirsdag 14.01.20
