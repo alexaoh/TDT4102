@@ -9,3 +9,17 @@ double posY(double initPosition, double initVelocity, double time);
 void printTime(double sec); //1d)
 
 double flightTime(double initVelocity); //1e)
+
+//Task 4a)
+double getUserInputTheta(); 
+double getUserInputAbsVelocity();
+double degToRad(double deg);
+double getVelocityX(double theta, double absVelocity);
+double getVelocityY(double theta, double absVelocity);
+vector<double> getVelocityVector(double theta, double absVelocity);
+
+//Task 4b) 
+double getDistanceTraveled(double velocityX, double velocityY);
+
+//Task 4c) 
+double targetPractice(double distanceToTarget, double velocityX, double velocityY);
