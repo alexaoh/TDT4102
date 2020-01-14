@@ -1,5 +1,6 @@
 #include "std_lib_facilities.h"
 #include "cannonball.h"
+#include "utilities.h"
 
 void testDeviation(double compareOperand, double toOperand, double maxError, string name);
 
