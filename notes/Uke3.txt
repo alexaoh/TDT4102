@@ -35,3 +35,42 @@ Pass by (const) reference
 Example program bug_1.cpp --> PPP 8.5.2, page 275 (Avoid "fall through")
 
 Tirsdag 14.01.20
+
+param_passing.cpp --> example program for pass by reference. 
+
+Use ampersand in the parameter (behind the data type of the parameter) to use pass by reference. 
+Could also pass in a const-reference into the function. 
+
+PPP A.8 for more about datatypes
+
+Lecture 4: 
+
+# Type safety PPP 3.9
+type_1.cpp --> Demonstrates VSCODE type-safety violation warnings. Also show safe conversions between types. 
+More examples on PPP page 80, chapter 3.9.2. 
+
+# Unnamed objects PPP 13.10
+Use new to create unnamed objects and Vector_ref to store these. 
+
+# Vector_ref
+Special vector that can hold named and unnamed objects. 
+Palette.cpp --> example 
+
+# String and char, input
+string_2.cpp --> example: looking for a specific character. 
+String operations and functions PPP 23.2
+We prefer moderns trings from the standars library! (Not C-strings, but sometimes we must use them)
+
+Character classification functions PPP 11.6
+
+Making reading integers more robust:
+int_input.cpp --> example 
+PPP 10.6 --> error handling
+PPP 10.7 --> clean up the code
+
+# Set<> from STL (Standard Template Library) PPP 21.6
+Ordered container of UNIQUE objects of a specific type
+    --> the < operator must be defines for the type
+.insert() and .erase()
+
+# Input
