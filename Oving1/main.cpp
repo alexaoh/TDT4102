@@ -98,7 +98,7 @@ int main(){
 	
 	/*
 	cout << "Oppgave f)\n";
-	cout << std::boolalpha << isPrime(5) << endl;
+	cout << boolalpha << isPrime(5) << endl;
 	*/
 	/* Comment: 
 	Without boolalpha the function returns:
