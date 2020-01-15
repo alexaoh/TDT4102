@@ -96,22 +96,24 @@ void readAndSumIntegersWhile(){
 double inputDouble(){
 	cout << "Skriv inn et tall: ";
 	double x{0};
-	cin >> x;
-	return x;
+	cin >> setprecision(10) >> fixed >> x;
+	return x; //Finner ikke ut av om dette gjør noe særlig? 
+	//Her har jeg brukt fixed + setprecision(). 
+	//Skal det brukes ved input eller output?
+	//Har en output i switch-casen!?
 }
 
 	//e)
-/*void convertNokToEuro(){
+void convertNokToEuro(){
 	int amountNok{0};
+	double rate{9.75};
 	do {
 		amountNok = inputDouble();
-		double rate{9.75};
 	} while (amountNok < 0);
-	cout << amountNok * rate; //Why is rate not recognized?
-	return;
-	//unfinished! Checko out README. 
+	cout << setprecision(12) << fixed << amountNok * rate << endl; 
+	return; //Den skriver ut flere enn 12 siffer? Hvorfor?
 }
-*/
+
 
 	//f)
 	/*Bør bruke inputDouble ()fordi jeg vil ha double som input i
@@ -122,7 +124,7 @@ double inputDouble(){
 
 //Task 2 ends here. 
 
-//Task 3b, gangetabell: Use setw in the book to make nice tables.
+//Task 3b, gangetabell: 
 
 void multipTable(){
 	int width{0};
@@ -131,24 +133,39 @@ void multipTable(){
 	cin >> width;
 	cout << "Skriv inn ønsket høyde: " << endl;
 	cin >> height;
-	//Now i need to write out the multiplication table!
+	for (int i = 1; i < height + 1; i++){
+		for (int e = 1; e < width + 1; e++){
+			cout << setw(4) << i*e;
+		}
+		cout << endl; 
+	}	
 
 	return;
 }
 
 //Task 4
-/*
+
 	//a)
 double discriminant(double a, double b, double c){
 	return pow(b,2) - 4*a*c;
 }
 	//b)
 void printRealRoots(double a, double b, double c){
-	//use a function from std-library to find the root. See Appendix B. B.9.2 is useful. 
-	double x1 = (-b + std::sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
-	double x2 = (-b - std::sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
-	//hopefully this will work. Just tested with std::sqrt without checking the book. 
+	//use a function from std-library to find the root. See Appendix B. B.9.2 is useful (Found sqrt there). 
 
+	if (discriminant(a,b,c) < 0){
+		cout << "The function has no real roots" << endl; ;
+		return; 
+	} else {
+		double x1 = (-b + sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
+		double x2 = (-b - sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
+		if (x1 == x2){
+		cout << "The function has one real root: " << setprecision(8) << fixed << x1 << endl;
+		} else {
+			cout << "The function has two real roots: " << setprecision(8) << fixed << x1 << " and " << setprecision(8) << fixed << x2 << endl; 
+		}
+	}
+	
 	return;
 }
 	//c)
@@ -163,8 +180,8 @@ void solveQuadraticEquation(){
 
 	//d) Add solveQuadraticEquation() to the menu-list in main(). 
 
-	//e) More with the test-menu.
-*/
+	//e) More with the test-menu. It works fine for all the cases listed in the task!
+
 //Task 4 ends here. 
 
 //Task 5, Grafikk - Pythagoras' læresetning. 
@@ -241,14 +258,14 @@ vector<int> calculateAnnuity(int debt, int rate, int years){
 }
 
 	//c)
-void printSeriesVsAnnuityTable(){vector<int> series, vector<int> annuity}{
+void printSeriesVsAnnuityTable(vector<int> series, vector<int> annuity){
 	//Check the book for easier/nicer formatting of the table!
 	cout << "År " << " Annuitet " << " Serie " << " Differanse " << endl; 
 }
 
 
 int main(){
-	/*
+	
 	//Task 3, Menysystem:
 	
 	int userChoice{0};
@@ -259,30 +276,41 @@ int main(){
 		cout << "2) Summer flere tall, helt til du avslutter " << endl; 
 		cout << "3) Konverter NOK til EURO " << endl; 
 		cout << "4) Skriv ut gangetabell i ønsket format " << endl;
-		cout << "Angi valg (0-4) " << endl; 
+		cout << "5) Test funksjonen inputDouble() " << endl;  
+		cout << "6) Solve a Quadratic Equation " << endl; 
+		cout << "Angi valg (0-6) " << endl; 
 		cin >> userChoice;
 		switch(userChoice){
+			case 0:
+				cout << "Avslutter menyen. " << endl; 
+				break;
 			case 1: 
 				readAndWriteSumOfIntegers();
 				break;
 			case 2: 
 				readAndSumIntegersWhile();
 				break;
-			case 3: //Cannot be finished because of task 2, but the method works so far!
+			case 3:
 				convertNokToEuro();
 				break;
-			*/
-			/*
 			case 4:
 				multipTable();
 				break;
-			
+			case 5: 
+				{
+					double x{inputDouble()};
+					cout << fixed << x << endl;
+					break;
+				}
+			case 6: 
+				solveQuadraticEquation();
+				break; 
 			default: 
 				cout << "Du må velge ett av tallene som finnes i menyen!";
 				break;
 		}
 	} while (userChoice != 0);
-	*/
+	
 
 	/*
 	//Used to show values in 6a)	
