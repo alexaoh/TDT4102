@@ -69,6 +69,7 @@ void readAndWriteSumOfIntegers(){
 	}
 	cout << "Summen er: " << sum << endl;
 	return;
+
 }
 
 	//b)
@@ -96,11 +97,8 @@ void readAndSumIntegersWhile(){
 double inputDouble(){
 	cout << "Skriv inn et tall: ";
 	double x{0};
-	cin >> setprecision(10) >> fixed >> x;
-	return x; //Finner ikke ut av om dette gjør noe særlig? 
-	//Her har jeg brukt fixed + setprecision(). 
-	//Skal det brukes ved input eller output?
-	//Har en output i switch-casen!?
+	cin >> x;
+	return x; 
 }
 
 	//e)
@@ -111,7 +109,7 @@ void convertNokToEuro(){
 		amountNok = inputDouble();
 	} while (amountNok < 0);
 	cout << setprecision(12) << fixed << amountNok * rate << endl; 
-	return; //Den skriver ut flere enn 12 siffer? Hvorfor?
+	return; 
 }
 
 
@@ -147,18 +145,18 @@ void multipTable(){
 
 	//a)
 double discriminant(double a, double b, double c){
-	return pow(b,2) - 4*a*c;
+	double value = pow(b,2) - 4*a*c
+	return value;
 }
 	//b)
 void printRealRoots(double a, double b, double c){
 	//use a function from std-library to find the root. See Appendix B. B.9.2 is useful (Found sqrt there). 
-
-	if (discriminant(a,b,c) < 0){
+	double value = discriminant(a,b,c);
+	if (value < 0){
 		cout << "The function has no real roots" << endl; ;
-		return; 
 	} else {
-		double x1 = (-b + sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
-		double x2 = (-b - sqrt(discriminant(a,b,c)))/static_cast<double>(2*a);
+		double x1 = (-b + sqrt(value))/static_cast<double>(2*a);
+		double x2 = (-b - sqrt(value))/static_cast<double>(2*a);
 		if (x1 == x2){
 		cout << "The function has one real root: " << setprecision(8) << fixed << x1 << endl;
 		} else {
@@ -280,7 +278,7 @@ void printSeriesVsAnnuityTable(vector<int> series, vector<int> annuity){
 	}
 
 	//prøvde å finne summen av en vector slik: accumulate(annuity.begin(), annuity.end(), 0)
-	// Men det fungerte ikke!?
+	//Fikk det ikke til å fungere!?
 	cout 
 		 << setw(6) << "Total"
 		 << setw(12) << sumAnnuity
@@ -341,6 +339,8 @@ int main(){
 				break;
 		}
 	} while (userChoice != 0);
+
+	pythagoras();
 	
 
 	/*
@@ -358,11 +358,6 @@ int main(){
 		cout << r << endl; 
 	}
 	*/
-
-
-
-
-
 
 	return 0; 
 

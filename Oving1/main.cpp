@@ -56,13 +56,13 @@ bool isPrime(int n){
 	return true;
 }
 
-int naivePrimeNumberSearch(int n){
+void naivePrimeNumberSearch(int n){
 	for (int number = 2; number < n; number++){
 		if (isPrime(number)){ 
 			cout << number << " is a prime" << endl;
 		}
 	}
-	return 0;
+	return;
 }
 
 int findGreatestDivisor(int n){
@@ -75,7 +75,7 @@ int findGreatestDivisor(int n){
 }
 
 int main(){
-	/* 
+	/*
 	cout << "Oppgave a)\n";
 	cout << maxOfTwo(5,6) << '\n';
 	*/
@@ -106,15 +106,15 @@ int main(){
 		1 if true
 	*/
 
-	/*
+	
 	cout << "Oppgave g)\n";
 	naivePrimeNumberSearch(22);
-	*/
+	
 
-	/*
+	
 	cout << "Oppgave h)\n";
 	cout << findGreatestDivisor(24) << endl;
-	*/
+	
 
 	return 0; //This is here because I think all functions need to return a value. 
 
