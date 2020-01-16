@@ -238,7 +238,7 @@ vector<int> calculateSeries(int debt, int rate, int years){
 	double interest{0.0};
 	double payment{static_cast<double>(debt)/years};
 	for(int i = 1; i <= years; ++i){	
-		interest = debt*rate/100;
+		interest = debt*rate*0.01;
 		amount = interest + payment;
 		paymentAmount.push_back(static_cast<int>(amount));
 		debt = debt - payment;
@@ -249,7 +249,7 @@ vector<int> calculateSeries(int debt, int rate, int years){
 	//b)
 vector<int> calculateAnnuity(int debt, int rate, int years){
 	vector<int> paymentAmount;
-	double amount{debt*((rate*0.01)/static_cast<double>(1-pow(1+(rate*0.01),-years)))};
+	double amount{debt*((rate*(1/100.0))/static_cast<double>(1-pow(1+(rate*0.01),-years)))};
 	for(int i = 1; i <= years; ++i){
 		paymentAmount.push_back(amount);
 	}
@@ -259,8 +259,35 @@ vector<int> calculateAnnuity(int debt, int rate, int years){
 
 	//c)
 void printSeriesVsAnnuityTable(vector<int> series, vector<int> annuity){
-	//Check the book for easier/nicer formatting of the table!
-	cout << "År " << " Annuitet " << " Serie " << " Differanse " << endl; 
+	int difference{0};
+	int sumSeries{0};
+	int sumAnnuity{0};
+	cout << left
+		 << setw(6) << "År" 
+		 << setw(12) << "Annuitet" 
+		 << setw(9) << "Serie" 
+		 << setw(14) << "Differanse" << endl; 
+	for (unsigned int i = 0; i < series.size(); i++){
+		cout 
+			 << setw(6) << i
+			 << setw(12) << annuity[i] 
+			 << setw(9) << series[i]
+			 << setw(14) << annuity[i]-series[i] << endl; 
+
+			difference += annuity[i]-series[i];
+			sumSeries += series[i];
+			sumAnnuity += annuity[i];
+	}
+
+	//prøvde å finne summen av en vector slik: accumulate(annuity.begin(), annuity.end(), 0)
+	// Men det fungerte ikke!?
+	cout 
+		 << setw(6) << "Total"
+		 << setw(12) << sumAnnuity
+		 << setw(9) << sumSeries
+		 << setw(14) << difference << endl; 
+
+	
 }
 
 
@@ -278,7 +305,8 @@ int main(){
 		cout << "4) Skriv ut gangetabell i ønsket format " << endl;
 		cout << "5) Test funksjonen inputDouble() " << endl;  
 		cout << "6) Solve a Quadratic Equation " << endl; 
-		cout << "Angi valg (0-6) " << endl; 
+		cout << "7) Print payments in series vs annuity " << endl; 
+		cout << "Angi valg (0-7) " << endl; 
 		cin >> userChoice;
 		switch(userChoice){
 			case 0:
@@ -305,6 +333,9 @@ int main(){
 			case 6: 
 				solveQuadraticEquation();
 				break; 
+			case 7: 
+				printSeriesVsAnnuityTable(calculateSeries(10000, 3, 10), calculateAnnuity(10000, 3, 10));
+				break;
 			default: 
 				cout << "Du må velge ett av tallene som finnes i menyen!";
 				break;
@@ -327,6 +358,8 @@ int main(){
 		cout << r << endl; 
 	}
 	*/
+
+
 
 
 
