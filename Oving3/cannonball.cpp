@@ -64,7 +64,7 @@ double getVelocityY(double theta, double absVelocity){
 }
 
 vector<double> getVelocityVector(double theta, double absVelocity){
-    vector<double> v{getVelocityX, getVelocityY};
+    vector<double> v{getVelocityX(theta, absVelocity), getVelocityY(theta, absVelocity)};
     return v;
 }
 
@@ -72,15 +72,18 @@ vector<double> getVelocityVector(double theta, double absVelocity){
 //VelocityX and velocityY can be taken from the two previously defined functions (or the vector-function)
 double getDistanceTraveled(double velocityX, double velocityY){
     double distance{0.0};
-    double initVelocity{2.0}; //this has to be initialized to something (or use the argument passed in to the function?)
-    double time{flightTime(initVelocity)}; //or use velocityX/Y?
-    distance = posX(0.0, initVelocity, time); //this is the distance since it begins in x=0.0
+    //double initVelocity{sqrt(pow(velocityX, 2) + pow(velocityY, 2))};
+    double time{flightTime(velocityY)}; 
+    double startPositionX{0.0};
+    distance = posX(startPositionX, velocityX, time); //this is the distance since it begins in x=0.0
     return distance; 
 }
 
 //Task 4c)
 double targetPractice(double distanceToTarget, double velocityX, double velocityY){
-    //?
+    double realDistanceTraveled{getDistanceTraveled(velocityX, velocityY)};
+    double difference{realDistanceTraveled-distanceToTarget};
+    return difference;
 }
 
 //Task 4d) Test the newly implemented code from main(). 

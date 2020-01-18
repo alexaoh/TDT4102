@@ -1,3 +1,4 @@
+#include "std_lib_facilities.h"
 double acc1Y(); //1a)
 
 double ve1Y(double initVelocityY, double time); //1b)
@@ -8,7 +9,7 @@ double posY(double initPosition, double initVelocity, double time);
 
 void printTime(double sec); //1d)
 
-double flightTime(double initVelocity); //1e)
+double flightTime(double initVelocityY); //1e)
 
 //Task 4a)
 double getUserInputTheta(); 
