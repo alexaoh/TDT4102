@@ -19,11 +19,17 @@ double posY(double initPosition, double initVelocity, double time){
 
 //Is this the way the task wants me to do it?
 void printTime(double sec){ //2d)
+    int hours = sec/3600;
+    int mins = sec/60-60*hours;
+    int secs = sec-mins*60-hours*3600;
+
+    /*
     int hours{static_cast<int>(sec)/3600};
     int mins{(static_cast<int>(sec)%3600)/60};
     //((sec/3600.0)-3600*hours)/60
     int secs{static_cast<int>(sec)%60};
     //(sec/60.0)-60*mins
+    */
     cout << "Number of hours: " << hours << endl; 
     cout << "Number of minutes: " << mins << endl; 
     cout << "Number of seconds: " << secs << endl; 
@@ -51,15 +57,15 @@ double getUserInputAbsVelocity(){
 }
 
 double degToRad(double deg){
-    return deg/180*M_PI;
+    return deg*M_PI/180.0;
 }
 
 double getVelocityX(double theta, double absVelocity){
     return absVelocity*cos(degToRad(theta));
 }
 
-double getVelocityY(double theta, double absVelocity){
-    return absVelocity*sin(degToRad(theta));
+double getVelocityY(double thetaInRadians, double absVelocity){
+    return absVelocity*sin(degToRad(thetaInRadians));
 }
 
 vector<double> getVelocityVector(double theta, double absVelocity){
@@ -80,7 +86,7 @@ double getDistanceTraveled(double velocityX, double velocityY){
 double targetPractice(double distanceToTarget, double velocityX, double velocityY){
     double realDistanceTraveled{getDistanceTraveled(velocityX, velocityY)};
     double difference{realDistanceTraveled-distanceToTarget};
-    return abs(difference);
+    return difference;
 }
 
 //Task 4d) Test the newly implemented code from main(). 

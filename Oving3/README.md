@@ -4,6 +4,12 @@
 
 > This is obviously not the correct way to do it, because it gives 0 hours, 0 mins and 0 secs in the last task. Find another way to make it correct!!
 
+> It gives an error when i declare the variable like this: int hours{sec/3600}; (cannot squeeze/fit double into int), but not when I do it like this: int hours = sec/3600;. WHY?
+Possible explanation: https://stackoverflow.com/questions/21150067/initialization-difference-with-or-without-curly-braces-in-c11/21169201
+Check out page 83 in PPP: universal and uniform initialization prevents narrowing --> This is the reason behind the error!? 
+
+> How could I solve this problem in another manner?
+
 2. What should I use as Pi in calculations? Do I have to define one my self? What is recommended in this course?
 
 > Found M_PI, which is a part of <cmath>. 

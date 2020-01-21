@@ -28,10 +28,11 @@ int main(){
 	//This result seems reasonable considering the values after 5 seconds in the table in the task description!
 
 	cout << "What is the distance to target? " << setprecision(2) << fixed << targetPractice(125.0, initialVelX, initialVelY) << endl;
-
-	srand(static_cast<unsigned int>(time(nullptr))); 
 	*/
+
+	//srand(static_cast<unsigned int>(time(nullptr))); 
 	playTargetPractice();
+	keep_window_open();
 	
 }
 

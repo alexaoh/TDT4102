@@ -25,13 +25,13 @@ string checkLongerOrShorter(double distanceToTheTarget){
 }
 
 void playTargetPractice(){
-    int numberOfTries{3};
+    bool vunnet = false;
+    int numberOfTries{10};
     do {
-        double radians{degToRad(getUserInputTheta())};
+        double radians{getUserInputTheta()};
         double initVel{getUserInputAbsVelocity()};
 
         vector<double> velVector{getVelocityVector(radians, initVel)};
-        cout << velVector[1];
 
         int minFieldLength{100};
         int maxFieldLength{1000};
@@ -44,24 +44,25 @@ void playTargetPractice(){
 
         string longerOrShorter{checkLongerOrShorter(distanceToTarget)};
 
-        cannonBallViz(targetPosition, maxFieldLength, velVector[0], velVector[1], 5);
+        cannonBallViz(targetPosition, maxFieldLength, velVector[0], velVector[1], 15);
 
+        cout << "Avstanden til målet er: " << abs(distanceToTarget) << longerOrShorter << endl; 
+        cout << "Kulen har brukt følgende tid på reisen: " << endl; 
+        printTime(travelTime);
+        numberOfTries--;
 
         if (abs(distanceToTarget) <= 5){
-            cout << "Gratulerer! Du har vunnet!";
+            vunnet = true;
             break;
-        }
-        else{
-            cout << "Avstanden til målet er: " << distanceToTarget << longerOrShorter << endl; 
-            cout << "Kulen har brukt følgende tid på reisen: " << endl; 
-            printTime(travelTime);
-            numberOfTries--;
         }
 
         
     } while (numberOfTries > 0);
 
-    cout << "Du har dessverre tapt. Prøv gjerne igjen. ";
+    if (vunnet){
+       cout << "Gratulerer, du har visst vunnet! ";
+    }
+    else cout << "Du har dessverre tapt. Prøv gjerne igjen. ";
     
 
 }

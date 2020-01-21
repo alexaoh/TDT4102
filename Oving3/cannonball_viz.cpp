@@ -8,7 +8,7 @@
 void cannonBallViz(double targetPosition, int fieldLength, double velocityX, double velocityY,
 				   int timeSteps)
 {
-	Point tl{100, 100}; // top-left corner of our window
+	Point tl{600, 100}; // top-left corner of our window
 	constexpr int w_width = 800;
 	constexpr int w_height = 500;
 	Simple_window window{tl, w_width, w_height, "Cannonball Visualizer"};
