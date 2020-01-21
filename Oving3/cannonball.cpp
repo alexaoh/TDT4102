@@ -51,16 +51,15 @@ double getUserInputAbsVelocity(){
 }
 
 double degToRad(double deg){
-    const double pi{3.1415926535359};
-    return deg/180*pi;
+    return deg/180*M_PI;
 }
 
 double getVelocityX(double theta, double absVelocity){
-    return getUserInputAbsVelocity()*cos(degToRad(theta));
+    return absVelocity*cos(degToRad(theta));
 }
 
 double getVelocityY(double theta, double absVelocity){
-    return getUserInputAbsVelocity()*sin(degToRad(theta));
+    return absVelocity*sin(degToRad(theta));
 }
 
 vector<double> getVelocityVector(double theta, double absVelocity){
@@ -69,10 +68,8 @@ vector<double> getVelocityVector(double theta, double absVelocity){
 }
 
 //Task 4b)
-//VelocityX and velocityY can be taken from the two previously defined functions (or the vector-function)
 double getDistanceTraveled(double velocityX, double velocityY){
     double distance{0.0};
-    //double initVelocity{sqrt(pow(velocityX, 2) + pow(velocityY, 2))};
     double time{flightTime(velocityY)}; 
     double startPositionX{0.0};
     distance = posX(startPositionX, velocityX, time); //this is the distance since it begins in x=0.0
@@ -83,7 +80,7 @@ double getDistanceTraveled(double velocityX, double velocityY){
 double targetPractice(double distanceToTarget, double velocityX, double velocityY){
     double realDistanceTraveled{getDistanceTraveled(velocityX, velocityY)};
     double difference{realDistanceTraveled-distanceToTarget};
-    return difference;
+    return abs(difference);
 }
 
 //Task 4d) Test the newly implemented code from main(). 

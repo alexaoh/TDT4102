@@ -5,6 +5,7 @@
 void testDeviation(double compareOperand, double toOperand, double maxError, string name);
 
 int main(){
+	/*
 	//Test hver funksjon fra main (3b)): 
 	cout << "Test acc1Y(): " << acc1Y() << endl;
 	cout << "Test ve1Y(): " << ve1Y(25.0, 2.5) << endl;
@@ -29,11 +30,8 @@ int main(){
 	cout << "What is the distance to target? " << setprecision(2) << fixed << targetPractice(125.0, initialVelX, initialVelY) << endl;
 
 	srand(static_cast<unsigned int>(time(nullptr))); 
-
-	for (int i = 0; i < 10; i++){
-		//Jeg får ikke samme resultat hver gang når jeg kjører denne uten srand? Hvorfor?
-		cout << "Random number " << randomWithLimits(10, 30) << endl;
-	}
+	*/
+	playTargetPractice();
 	
 }
 
