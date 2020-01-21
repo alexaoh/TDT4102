@@ -1,0 +1,57 @@
+# Tirsdag 21.01.20
+
+# Repetisjon
+Vector_ref --> palette.cpp as an example
+Robust menu --> SE SLIDE
+
+# Error handling (IO error handling) PPP 10.6
+cin is an istream object
+Istream maintains a stream state: 
+* good()
+* eof()
+* fail()
+* bad()
+
+cin.clear() sets the state to good (good() returns true)
+cin.unget() puts last character back to input stream
+cin.ignore(n, delim) deletes p to n characters, or until a char-delimiter
+
+# Error handling PPP 5
+PPP 5.6.3 - Bad input
+Our programs should (what is expected of us in this course): 
+1. Produce the desired result for all illegal inputs
+2. Give reasonable error messages for illegal inputs
+3. Need not worry abouit misbehaving hardware
+4. Need not worry about misbehaving system software
+5. Our program is allowed to terminate after finding an error. 
+
+Sources of errors: 
+* Poor specification of the problem
+* Incomplete programs: debug and test during development!
+* Unexpedted arguments
+* Unexpedted input
+
+Kinds of errors: 
+* PPP 5.3: compile-time errors
+* PPP 5.4 and 8.2-8.3: Link-time errors
+* Run time errors
+* Logic errors
+
+Example program: drill.cpp!
+
+Vector out of range error --> exception.cpp
+try - catch
+
+Pre- and post-condition PPP 5.10
+
+Bruk error()! --> The recommended way to report an error is to throw an exception
+
+# Struct and class PPP 9
+
+Class and struct are similar, but not the same. 
+
+Capital letter used normally in class-names. 
+
+Difference between struct and class: 
+* Class members are PRIVATE BY DEFAULT
+* Struct members are PUBLIC BY DEFAULT
