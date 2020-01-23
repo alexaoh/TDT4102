@@ -27,6 +27,7 @@ int main()
 		cout << "4) testVectorSorting() " << endl; 
 		cout << "5) printStudent() " << endl;
 		cout << "6) testString() " << endl;
+		cout << "7) readInputToString() " << endl;
 		cin >> userInput;
 		switch(userInput){
 			case 1: 
@@ -70,6 +71,11 @@ int main()
 				}
 			case 6: 
 				testString();
+				break;
+			case 7: 
+				//this function is skipped for now!
+				readInputToString;
+				break;
 			default: 
 				cout << "Try again. ";
 		}

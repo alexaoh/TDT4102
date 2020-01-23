@@ -61,6 +61,7 @@ void printStudent(Student student){
 }
 
 string randomizeString(int characters, char lowerLimit, char upperLimit){
+    //Study this a bit more also!
     string randomString;
     int lowLim = lowerLimit;
     int uppLim = upperLimit;
@@ -73,4 +74,44 @@ string randomizeString(int characters, char lowerLimit, char upperLimit){
     return randomString;
 }
 
-string readInputToString(int characters, char lowerLimit, char upperLimit);
+//Skipping this for now!
+string readInputToString(int characters, char lowerLimit, char upperLimit){
+    string text;
+    cout << "Fill the string with characters between " << lowerLimit << " and " << upperLimit << ".\n";
+    string filling; 
+    int low = lowerLimit;
+    int upper = upperLimit;
+    
+   // int fillingNumber = filling; //Fungerer kun med char naturligvis!
+    //Sjekk at jeg har tolket oppgaven rett!
+    //While-loop?
+    //Use try-cath-exceptions maybe? Find out!
+    //This solution feels sub-optimal, but try it first!
+    while(text.size() != characters){
+        getline(cin, filling);
+        //toupper(filling); //You get the idea for now. Try more later!
+        for (auto x : filling){
+            int in = x;
+            if (in>low && in<upper){
+                text.push_back(x);
+            }
+            else{
+                cout << "Please give new and correct input" << endl;
+                break;
+            }
+        
+        }
+    }
+
+    return text;    
+}
+
+int countChar(string text, char letter){
+    int amount{0};
+    for (char x : text){
+        if (x == letter){
+            amount++;
+        } 
+    }
+    return amount;
+}

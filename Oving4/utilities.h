@@ -14,3 +14,5 @@ struct Student {
 void printStudent(Student student);
 
 string randomizeString(int characters, char lowerLimit, char upperLimit);
+string readInputToString(int characters, char lowerLimit, char upperLimit);
+int countChar(string text, char letter);

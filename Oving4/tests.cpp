@@ -51,8 +51,32 @@ void testString(){
     string grades;
     char lowerlimit{'A'};
     char upperLimit{'F'};
+    vector<int> gradeCount(6);
     grades = randomizeString(8, lowerlimit, upperLimit);
     cout << "The string is " << grades << ".\n"; 
+    //Må vel finnes en mer effektiv måte å gjøre dette på!
+    //Fyll en vektor vha lower og upper f.eks og loop gjennom.
+    int amountOfA{countChar(grades, 'A')};
+    int amountOfB{countChar(grades, 'B')};
+    int amountOfC{countChar(grades, 'C')};
+    int amountOfD{countChar(grades, 'D')};
+    int amountOfE{countChar(grades, 'E')};
+    int amountOfF{countChar(grades, 'F')};
+    gradeCount.push_back(amountOfF);
+    gradeCount.push_back(amountOfE);
+    gradeCount.push_back(amountOfD);
+    gradeCount.push_back(amountOfC);
+    gradeCount.push_back(amountOfB); //LOL, spaghetti
+    gradeCount.push_back(amountOfA);
+
+    int average{0};
+    for (int i = 0; i<gradeCount.size(); i++){
+        average += gradeCount[i]*i; 
+    }
+    average = average/gradeCount.size();
+    cout << "The grade average is " << average << endl; 
+
+
 }
 
 
