@@ -1,5 +1,6 @@
 # Questions to the tasks
 
+1. Check out comments in code for testing printStudent() in main() (about cin.ignore and a new-line left in the input-stream!)
 
 
 

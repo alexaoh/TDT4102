@@ -47,6 +47,14 @@ void testVectorSorting(){
     cout << "Median: " << medianOfVector(percentages) << endl; 
 }
 
+void testString(){
+    string grades;
+    char lowerlimit{'A'};
+    char upperLimit{'F'};
+    grades = randomizeString(8, lowerlimit, upperLimit);
+    cout << "The string is " << grades << ".\n"; 
+}
+
 
 void printVector(vector<int> vec){
     for (auto x : vec){

@@ -25,6 +25,8 @@ int main()
 		cout << "2) testCallByReference() " << endl; 
 		cout << "3) swapNumbers() " << endl; 
 		cout << "4) testVectorSorting() " << endl; 
+		cout << "5) printStudent() " << endl;
+		cout << "6) testString() " << endl;
 		cin >> userInput;
 		switch(userInput){
 			case 1: 
@@ -49,7 +51,25 @@ int main()
 			case 4: 
 				testVectorSorting();
 				break;
-				//JA, jeg får ulike svar før og etter den sorterte vektoren!
+				//JA, jeg får ulike svar før og etter den sorterte vektoren! (Naturligvis!)
+			case 5: {
+				//Need to fix error-handling here aswell!!!
+				Student new_student; 
+				cin.ignore(); //The userinput leaves a \n in the stream, which skips the getline new_student.name
+				//if this ignore is removed. Can this be solved more generally? Or should this ignore be added everywhere?
+				//These problems could happen anywhere!!
+				cout << "Register a student! Write: " << endl; 
+				cout << "Name: " << endl; 
+				getline(cin, new_student.name);
+				cout << "Study Program: " << endl; 
+				getline(cin, new_student.studyProgram);
+				cout << "Age: " << endl; 
+				cin >> new_student.age;
+				printStudent(new_student);
+				break; 
+				}
+			case 6: 
+				testString();
 			default: 
 				cout << "Try again. ";
 		}

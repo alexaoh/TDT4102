@@ -50,5 +50,27 @@ double medianOfVector(const vector<int>& vec){
         median = (vec[((length-2)/2)] + vec[(length/2)])/2.0;
     } else median = vec[(length-1)/2];
     return median; 
-
 }
+
+void printStudent(Student student){
+    cout << "This will print the attributes of the given student: " << endl; 
+    cout << "Name: " << student.name << endl; 
+    cout << "Study Program: " << student.studyProgram << endl; 
+    cout << "Age: " << student.age << endl; 
+    return;
+}
+
+string randomizeString(int characters, char lowerLimit, char upperLimit){
+    string randomString;
+    int lowLim = lowerLimit;
+    int uppLim = upperLimit;
+    srand(static_cast<unsigned int>(time(nullptr)));
+    for (int i = 0; i<characters; i++){
+        char random_letter = rand() % (uppLim - lowLim + 1) + lowLim;
+        randomString.push_back(random_letter);
+    }
+
+    return randomString;
+}
+
+string readInputToString(int characters, char lowerLimit, char upperLimit);
