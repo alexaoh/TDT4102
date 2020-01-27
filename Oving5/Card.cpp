@@ -4,7 +4,7 @@
 string suitToString(Suit s){
     map<Suit, string> suitStrings;
     suitStrings[Suit::clubs] = "Clubs";
-    suitStrings[Suit::diamonds] = "Diamons";
+    suitStrings[Suit::diamonds] = "Diamonds";
     suitStrings[Suit::hearts] = "Hearts";
     suitStrings[Suit::spades] = "Spades";
     return suitStrings[s];

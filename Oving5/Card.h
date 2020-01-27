@@ -1,4 +1,5 @@
 #include "std_lib_facilities.h"
+
 enum class Suit{
     clubs, diamonds, hearts, spades
 };
