@@ -74,33 +74,39 @@ string randomizeString(int characters, char lowerLimit, char upperLimit){
     return randomString;
 }
 
-//Skipping this for now!
+//This function works-ish now. 
 string readInputToString(int characters, char lowerLimit, char upperLimit){
     string text;
-    cout << "Fill the string with characters between " << lowerLimit << " and " << upperLimit << ".\n";
+    cout << "Fill the string with " << characters << " characters between " << lowerLimit << " and " << upperLimit << ".\n";
     string filling; 
     int low = lowerLimit;
     int upper = upperLimit;
     
-   // int fillingNumber = filling; //Fungerer kun med char naturligvis!
-    //Sjekk at jeg har tolket oppgaven rett!
-    //While-loop?
-    //Use try-cath-exceptions maybe? Find out!
-    //This solution feels sub-optimal, but try it first!
-    while(text.size() != characters){
+    while(text.size() < characters){
         getline(cin, filling);
-        //toupper(filling); //You get the idea for now. Try more later!
-        for (auto x : filling){
-            int in = x;
-            if (in>low && in<upper){
-                text.push_back(x);
-            }
-            else{
-                cout << "Please give new and correct input" << endl;
-                break;
-            }
-        
+        //toupper(filling);
+        if (filling.size() > characters){
+            cout << "The string should not be longer than " << characters << " long" << endl; 
+            continue;
         }
+        else{
+            for (auto x : filling){
+                int in = x;
+                //std::isalpha(filling) Skulle ha denne som betingelse under egt. 
+                //men denne fungerer kun på chars!
+                //Letter e
+                if (true){
+                    if (in>low-1 && in<upper+1){ //For å få med A og F. 
+                    text.push_back(x);
+                    }
+                    else{
+                        cout << "Please give characters between " << lowerLimit << " and " << upperLimit << endl;
+                        break;
+                    }
+                }
+            }   
+        }
+        //cin.ignore();
     }
 
     return text;    

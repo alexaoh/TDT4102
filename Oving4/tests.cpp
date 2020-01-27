@@ -51,7 +51,9 @@ void testString(){
     string grades;
     char lowerlimit{'A'};
     char upperLimit{'F'};
-    vector<int> gradeCount(6);
+    vector<int> gradeCount;
+    cout << "Gradecount when declaring: ";
+    printVector(gradeCount);
     grades = randomizeString(8, lowerlimit, upperLimit);
     cout << "The string is " << grades << ".\n"; 
     //Må vel finnes en mer effektiv måte å gjøre dette på!
@@ -69,11 +71,15 @@ void testString(){
     gradeCount.push_back(amountOfB); //LOL, spaghetti
     gradeCount.push_back(amountOfA);
 
-    int average{0};
-    for (int i = 0; i<gradeCount.size(); i++){
-        average += gradeCount[i]*i; 
+    cout << "This is gradeCount: ";
+    printVector(gradeCount);
+
+    double average{0.0};
+    double sum{0.0};
+    for (unsigned int i = 0; i<gradeCount.size(); i++){
+        sum += gradeCount[i]*i; 
     }
-    average = average/gradeCount.size();
+    average = sum/gradeCount.size();
     cout << "The grade average is " << average << endl; 
 
 
