@@ -1,0 +1,26 @@
+# Tirsdag 28.01.20
+
+guessRandom.cpp --> example-file
+
+Se på forelesning forrige uke for assert, exceptions, 
+håndtering av feil, debugging, etc. 
+
+exception.cpp
+
+date.cpp
+
+Invariant = A rule for what constitutes a valid value
+
+Scaling (graphics) PPP 15.6.2-3
+
+# Enumerations
+Class enumerations = scoped enumerations
+
+# Operator overloading
+month.cpp --> example of output stream operator overloading (?)
+
+Good practice: Overload operators only with their conventional meaning. 
+- Don't overload unless you have to. 
+
+cleanAir.cpp
+cleanAir_V1.cpp --> example to demonstrate manu C++ elements lectured so far. 
