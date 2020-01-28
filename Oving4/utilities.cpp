@@ -77,7 +77,7 @@ string randomizeString(int characters, char lowerLimit, char upperLimit){
 //This function works-ish now. 
 string readInputToString(int characters, char lowerLimit, char upperLimit){
     string text;
-    cout << "Fill the string with " << characters << " characters between " << lowerLimit << " and " << upperLimit << ".\n";
+    cout << "Fill the string with " << characters << " characters (one at a time) between " << lowerLimit << " and " << upperLimit << ".\n";
     string filling; 
     int low = lowerLimit;
     int upper = upperLimit;
