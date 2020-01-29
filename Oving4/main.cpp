@@ -2,6 +2,8 @@
 #include "utilities.h"
 #include "tests.h"
 #include "mastermind.h"
+#include "Graph.h"
+#include "Simple_window.h"
 
 /*Task 1a) Kodeforståelse: 
 Verdien som blir skrevet ut for v0 er 5. 
@@ -14,6 +16,8 @@ overskrides heller ikke på utsiden av funksjonen (i main)
 
 int main()
 {
+	using namespace Graph_lib;
+	
 	//Lag en testmeny (bedre enn i Oving2! senere.
 	//En som tar seg av errors (try-catch e.l), se teori. 
 	//Forbedre menyen på den måten!!!
@@ -96,6 +100,8 @@ int main()
 		cout << "Unknown exception\n";
 		return 2;
 	}
+
+	return gui_main();
 	
 	keep_window_open();
 }

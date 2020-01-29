@@ -1,11 +1,38 @@
 #include "masterVisual.h"
 void addGuess(MastermindWindow& mwin,const string code,const int size, const char startLetter, const int round){
-	//definer addGuess
+	int yPos = padY*(2*round+3);
+	int subtractor{1};
+	for (int x = 1; x < 2*sizing + 1; x+=2){
+		int xPos = padX*x;
+		int c = code[x-subtractor];
+		mwin.vr.push_back(new Rectangle{Point{xPos, yPos}, padX,padY});
+		mwin.vr[mwin.vr.size()-1].set_fill_color(c);
+		mwin.attach(mwin.vr[mwin.vr.size()-1]);
+		subtractor++;
+	}
 	
 }
 void addFeedback(MastermindWindow &mwin,const int correctPosition, const int correctCharacter, const int size,
  const int round){
-     //definer addFeedback
+	int yPos = padY*((2*round+3)+0.5);
+	for (int i = 0; i < size; ++i){
+		int xPos = winW-padX-btnW + radCircle*2*i;
+		//2*(size+0.5)*padX
+		if (i < correctPosition){
+			mwin.vc.push_back(new Circle{Point{xPos, yPos}, radCircle});
+			mwin.vc[mwin.vc.size()-1].set_fill_color(Color::black);
+			mwin.attach(mwin.vc[mwin.vc.size()-1]);
+			//correctPos--;
+		} else if (i < correctCharacter){
+			mwin.vc.push_back(new Circle{Point{xPos, yPos}, radCircle});
+			mwin.vc[mwin.vc.size()-1].set_fill_color(Color::white);
+			mwin.attach(mwin.vc[mwin.vc.size()-1]);
+		} else{
+			mwin.vc.push_back(new Circle{Point{xPos, yPos}, radCircle});
+			mwin.attach(mwin.vc[mwin.vc.size()-1]);
+		}
+	}
+     
 }
 
 void hideCode(MastermindWindow &mwin,const int size){

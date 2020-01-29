@@ -65,7 +65,7 @@ string randomizeString(int characters, char lowerLimit, char upperLimit){
     string randomString;
     int lowLim = lowerLimit;
     int uppLim = upperLimit;
-    srand(static_cast<unsigned int>(time(nullptr)));
+    //srand(static_cast<unsigned int>(time(nullptr)));
     for (int i = 0; i<characters; i++){
         char random_letter = rand() % (uppLim - lowLim + 1) + lowLim;
         randomString.push_back(random_letter);

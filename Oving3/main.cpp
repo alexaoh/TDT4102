@@ -30,7 +30,7 @@ int main(){
 	cout << "What is the distance to target? " << setprecision(2) << fixed << targetPractice(125.0, initialVelX, initialVelY) << endl;
 	*/
 
-	//srand(static_cast<unsigned int>(time(nullptr))); 
+	srand(static_cast<unsigned int>(time(nullptr))); 
 	playTargetPractice();
 	keep_window_open();
 	

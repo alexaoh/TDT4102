@@ -10,8 +10,12 @@
 --> I solved this task, but it seems sub-optimal. How else could it be solved?
 --> Skal den klare å få input som strings også (slik jeg har tenkt)? Eller holder det med chars? Da blir den mye lettere!
 
+> Check getInput in MastermindWindow-class in masterVisual-files. This is solved in another way!
+
 5. How can i check if guesses <= 0 outside of the scope of the while-loop in playMastermind()? Now it writes "you lost" after the loop, not depending on wheher you lost or not. 
 
+
+### Take a look at the solution from the professors when that is published! I want to see some other solutions to the problems!
 
 ### Take a closer look at the graphics that are used towards the end of the course! 
 
