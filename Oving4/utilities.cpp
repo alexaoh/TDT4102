@@ -61,13 +61,10 @@ void printStudent(Student student){
 }
 
 string randomizeString(int characters, char lowerLimit, char upperLimit){
-    //Study this a bit more also!
+    srand(static_cast<unsigned int>(time(nullptr)));
     string randomString;
-    int lowLim = lowerLimit;
-    int uppLim = upperLimit;
-    //srand(static_cast<unsigned int>(time(nullptr)));
     for (int i = 0; i<characters; i++){
-        char random_letter = rand() % (uppLim - lowLim + 1) + lowLim;
+        char random_letter = rand() % (upperLimit - lowerLimit + 1) + lowerLimit;
         randomString.push_back(random_letter);
     }
 
