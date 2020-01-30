@@ -6,7 +6,7 @@
 int randomWithLimits(int lowerLimit, int upperLimit){
     //Skjønner ikke helt hvordan man setter upper og lower limit
     //Hvorfor fungerer dette med moduloen?
-    int random_number = rand() % (upperLimit+1-lowerLimit) + lowerLimit;
+    int random_number = rand() % (upperLimit-lowerLimit + 1) + lowerLimit;
     //Added the +1 so that the upperLimit also can be returned. 
     //I do not understand quite how this works?
 

@@ -17,19 +17,20 @@ double posY(double initPosition, double initVelocity, double time){
     return initPosition + initVelocity*time + acc1Y()*pow(time, 2)/static_cast<double>(2);
 }
 
-//Is this the way the task wants me to do it?
 void printTime(double sec){ //2d)
+    //Both these solutions work now! 
+    //But I think they were in trouble when i used universal and uniform initialization. This can be checked out later in the course. 
     int hours = sec/3600;
     int mins = sec/60-60*hours;
     int secs = sec-mins*60-hours*3600;
+    
 
     /*
     int hours{static_cast<int>(sec)/3600};
     int mins{(static_cast<int>(sec)%3600)/60};
-    //((sec/3600.0)-3600*hours)/60
-    int secs{static_cast<int>(sec)%60};
-    //(sec/60.0)-60*mins
+    int secs = sec-mins*60-hours*3600;
     */
+    
     cout << "Number of hours: " << hours << endl; 
     cout << "Number of minutes: " << mins << endl; 
     cout << "Number of seconds: " << secs << endl; 
