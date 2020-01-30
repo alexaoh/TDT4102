@@ -28,14 +28,16 @@ void playMastermind(){
         addGuess(mwin, guess, guess.size(), code[0], round);
         addFeedback(mwin, correctPosition,correctCharacter, sizing, round);
 
-        if (guess == code){
-            cout << "Congratz! You won!";
-            break;
-        }
         cout << "Amount of correct characters: " << correctCharacter << endl; 
         cout << "Characters in the correct spot: " << correctPosition << endl; 
         amountOfGuesses--;
         round++;
+        if (guess == code){
+            cout << "Congratz! You won!";
+            break;
+        } else if (amountOfGuesses == 0){
+            break;
+        }
         
     }
     while (checkCharactersAndPosition(code,guess) < sizing && guesses > 0);
@@ -43,8 +45,11 @@ void playMastermind(){
     mwin.redraw();
     
     //Hvordan sjekke om han har vunnet eller tapt het ute?!
-    cout << "I am sorry, you lost. Try again. " << endl; 
-    return; 
+    if (amountOfGuesses == 0){
+        cout << "I am sorry, you lost. Try again. " << endl; 
+    }
+    return;
+    
    
 }
 
