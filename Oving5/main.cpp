@@ -1,5 +1,5 @@
 #include "std_lib_facilities.h"
-#include "CardDeck.h"
+#include "Blackjack.h"
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 	cout << "The last card is: " << newDeck.drawCard().toString() << endl;
 	cout << "New deck after drawing last card: " << endl;
 	newDeck.printShort();
-	
+
 	/*Task 1e Teori: 
 	Fordeler ved å bruke symboler kontra heltall og strenger i koden: 
 	1. Enklere å forstå hvilke symboler som symboliserer hvilke størrelser, 
