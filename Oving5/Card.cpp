@@ -29,33 +29,25 @@ string rankToString(Rank r){
 }
 
 Card::Card(Suit suit, Rank rank)
-:s{suit}, r{rank}
-{
+:s{suit}, r{rank}{}
+
+Suit Card::getSuit() const{
+    return s; 
 }
 
-string Card::getSuit(){
-    string suit = suitToString(s);//Return the true Suit from enum instead of the string-representation of it?
-    return suit; 
+Rank Card::getRank() const{
+    return r;
 }
 
-string Card::getRank(){
-    string rank = rankToString(r); //should try to return a number here instead
-                                    //Will make it easier in toStringShort()!
-                                    //This is probably a hint given from "Nyttig å vite as well!"
-    return rank;
-}
-
-string Card::toString(){
-    string suit = Card::getSuit();
-    string rank = Card::getRank();
-    string totalString{suit + " of " + rank};
+string Card::toString() const{
+    string totalString{rankToString(r) + " of " + suitToString(s)};
     return totalString;
 }
 
-string Card::toStringShort(){
-    string totalString = Card::toString();
+string Card::toStringShort() const{
+    string suit = suitToString(s);
     string shortString;
-    shortString += totalString[0];
-    //Need to add the number-value to shortString aswell!
-    //Check comments further up in the code. 
+    shortString += suit[0];
+    shortString += to_string(static_cast<int>(r));
+    return shortString; 
 }

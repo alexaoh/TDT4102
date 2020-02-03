@@ -1,7 +1,7 @@
 #include "std_lib_facilities.h"
 
 enum class Suit{
-    clubs, diamonds, hearts, spades
+    clubs, diamonds, hearts, spades 
 };
 
 enum class Rank{
@@ -18,8 +18,8 @@ private:
     Rank r;
 public: 
     Card(Suit suit, Rank rank);
-    string getSuit();
-    string getRank();
-    string toString();
-    string toStringShort();
+    Suit getSuit() const;
+    Rank getRank() const;
+    string toString() const;
+    string toStringShort() const;
 };

@@ -1,15 +1,33 @@
 #include "std_lib_facilities.h"
-#include "Card.h"
+#include "CardDeck.h"
 
 int main()
 {
-	Suit s = Suit::diamonds;
+	Suit s = Suit::spades;
 	Rank r = Rank::ace;
 	string heisann{suitToString(s)};
 	string heisann2{rankToString(r)};
 
-	cout << "Dette er suitToString(): " << heisann << " " << "RankToString(): " << heisann2 << endl; 
+	cout << "Dette er suitToString(): " << heisann << " " << "RankToString(): " << heisann2 << endl;
+	cout << "Test the functions: " << endl;
 
+	Card nyttKort{s,r};
+	cout << "getSuit() " << suitToString(nyttKort.getSuit()) << endl;
+	cout << "getRank() " << rankToString(nyttKort.getRank()) << endl;
+	cout << "toString() " << nyttKort.toString() << endl;
+	cout << "toStringShort() " << nyttKort.toStringShort() << endl;
+
+	CardDeck newDeck{};
+	newDeck.print();
+	newDeck.shuffle();
+	cout << endl;
+	cout << "Shuffling the deck" << endl; 
+	newDeck.printShort();
+
+	cout << "The last card is: " << newDeck.drawCard().toString() << endl;
+	cout << "New deck after drawing last card: " << endl;
+	newDeck.printShort();
+	
 	/*Task 1e Teori: 
 	Fordeler ved å bruke symboler kontra heltall og strenger i koden: 
 	1. Enklere å forstå hvilke symboler som symboliserer hvilke størrelser, 
