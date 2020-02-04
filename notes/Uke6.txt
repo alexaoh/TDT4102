@@ -1,0 +1,25 @@
+# Tirsdag 04.02.20
+Lecture 7
+
+Static member variable
+Exists as one shared instance (across all objects of the class), 
+instead of one per object of the class
+
+PPP 10: 
+istream and ostream
+from and to files 
+
+iostream reduces all errors to one of four states: 
+- good()
+- eof()
+- fail()
+- bad()
+
+cleanAir_V1 --> big example. 
+Demonstrates many C++ elements lectured so far. 
+Have a thorough look later!
+
+Output manipulators --> check slde
+PPP 11.2.3-5
+
+File open modes --> check slide
