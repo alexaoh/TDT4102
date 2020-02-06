@@ -1,2 +1,63 @@
 #include "std_lib_facilities.h"
+#include "Blackjack.h"
 
+Blackjack::Blackjack(){
+    CardDeck deck;
+    deck.shuffle();
+    for (int i = 0; i < 4; i++){
+        if (i % 2 == 0){
+            playerCards.push_back(deck.drawCard());
+        }else{
+            dealerCards.push_back(deck.drawCard());
+        }
+    }
+}
+
+/*
+void Blackjack::printShortDealerCards() const{
+    for (auto card : dealerCards){
+        cout << card.toStringShort() << endl;
+    }
+
+    return;
+}
+*/
+
+
+void Blackjack::printShortPlayerCards() const{
+    for (auto card : playerCards){
+        cout << card.toStringShort() << endl;
+    }
+
+    return;
+}
+
+
+void Blackjack::printGame() const{
+    cout << "These are your cards: " << endl;
+    printShortPlayerCards();
+    cout << "The dealer has been delt the same amount of cards. His first card is: " << endl;
+	cout << dealerCards[0].toStringShort();
+	cout << endl; 
+    char answer{'N'};
+    cout << "Do you want to draw another card? (Y/N)" << endl; 
+    cin >> answer;
+
+    //Get input until it is a character! Fix later!
+    if (answer == 'N'){
+        //Check who wins
+    } else{
+        //Draw new card
+    }
+}
+
+void Blackjack::printRules() const{
+    cout << "The rules of the game!: " << endl 
+         << "You are dealt two cards. " << endl
+         << "The dealer is dealt the same amount of cards. " << endl
+         << "One of the dealer's cards is for you to see, " << endl
+         << "while the other is face down on the table" << endl
+         << "you may choose to draw another card, or you may \"sit\"" << endl
+         << "the player closest to 21 wins. ";
+    return;
+}

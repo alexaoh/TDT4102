@@ -28,6 +28,11 @@ int main()
 	cout << "New deck after drawing last card: " << endl;
 	newDeck.printShort();
 
+	cout << "Begin a new game of Blackjack: " << endl;
+	Blackjack newGame;
+	newGame.printRules();
+	newGame.printGame();
+
 	/*Task 1e Teori: 
 	Fordeler ved å bruke symboler kontra heltall og strenger i koden: 
 	1. Enklere å forstå hvilke symboler som symboliserer hvilke størrelser, 

@@ -10,7 +10,7 @@
 4. vector.erase() apparently does not work with a regular index? It worked with vector.end()-1, to give the last index. Iterator? What exactly is that? Why does it not work as I expected?
 
 
-*** Check LF ***
+***Check LF***
 
 ## Recommended theory (PPP):
 ```
