@@ -29,7 +29,7 @@ int main()
 	newDeck.printShort();
 
 	bool playMore{true};
-	char answer{'N'};
+	int answer{2};
 	while (playMore == true){
 		cout << "Begin a new game of Blackjack: " << endl;
 		Blackjack newGame;
@@ -37,10 +37,21 @@ int main()
 		newGame.printGame();
 		newGame.getGameWinner(newGame);
 		cout << endl; 
-		cout << "Du you want to play again? (Y/N)" << endl; 
+		cout << "Du you want to play again? (1 = Yes/ 2 = No)" << endl; 
 		cin >> answer;
-		if (answer == 'N'){
+		while (cin.fail()){
+			cin.clear();
+			cout << "Not an integer 1 or 2, please try again!" << endl;
+			for (char c; (cin >> c) && !isdigit(c); ){}
+			cin.unget();
+		}
+		if (answer == 2){
 			playMore = false;
+		} else if (answer == 1){
+			playMore = true;
+		} else{
+			cout << "Not a valid input, please try again.";
+			continue; //have not fixed invalid integer inputs here yet, but cannot be bother right now!
 		}
 	}
 	

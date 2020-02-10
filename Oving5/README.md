@@ -9,8 +9,12 @@
 
 4. vector.erase() apparently does not work with a regular index? It worked with vector.end()-1, to give the last index. Iterator? What exactly is that? Why does it not work as I expected?
 
+5. Wrong input-handling: Is it possible to get cin.fail() flag when asking for a char as input? I clearly changed my inputs to int to make them get flagged as fails when that is the case. However, I tried using chars earlier, and cin never got flagged as fail(). How?!
 
-***Check LF***
+6. More about input handling: for (char c; (cin >> c) && !isdigit(c); ){} --> why use char c there, instead of int c?? I don't really understand why!?
+
+
+***Check LF!!*** 
 
 ## Recommended theory (PPP):
 ```

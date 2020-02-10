@@ -35,46 +35,56 @@ void Blackjack::printShortPlayerCards() const{
 
 
 void Blackjack::printGame(){
-
+    bool check{true};
     while (moreGame == true){
-        PointsInCardVector player(playerCards);
-        playerPoints = player.getPointsInCardDeck();
+        if (check == true){
+            PointsInCardVector player(playerCards);
+            playerPoints = player.getPointsInCardDeck();
 
-        PointsInCardVector dealer(dealerCards);
-        dealerPoints = dealer.getPointsInCardDeck();
+            PointsInCardVector dealer(dealerCards);
+            dealerPoints = dealer.getPointsInCardDeck();
 
-        cout << "These are your cards: " << endl;
-        printShortPlayerCards();
-        cout << "Testing: " << endl; 
-        printShortDealerCards(); 
-        cout << endl;
-        cout << "The dealer's first card is: " << endl;
-        cout << dealerCards[0].toStringShort();
-        cout << endl; 
-        cout << "The scores are: " << endl;
-        cout << "Player: " << playerPoints << endl;
-        cout << "Dealer: " << dealerPoints << endl; 
-        checkWinner();
-        if (moreGame == false){
-            break;
-
-        }
-        cout << "Do you want to draw another card? (Y/N)" << endl; 
-        cin >> answer;
-
-        
-
-        if (answer == 'Y'){
-            playerCards.push_back(deckInUse.drawCard());
-            randomDrawDealerCard();
-        }
-
-        else{ //If answer == 0
+            cout << "These are your cards: " << endl;
+            printShortPlayerCards();
+            cout << "Testing: " << endl; 
+            printShortDealerCards(); 
+            cout << endl;
+            cout << "The dealer's first card is: " << endl;
+            cout << dealerCards[0].toStringShort();
+            cout << endl; 
+            cout << "The scores are: " << endl;
+            cout << "Player: " << playerPoints << endl;
+            cout << "Dealer: " << dealerPoints << endl; 
             checkWinner();
-            randomDrawDealerCard();
+            if (moreGame == false){
+                break;
+            }
+        }
+
+        cout << "Do you want to draw another card? (1 = Y/2 = N)" << endl; 
+        cin >> answer;
+        while (cin.fail()){
+            cin.clear();
+            cout << "Not an integer: 1 or 2, please try again \n";
+            for (char c; (cin >> c) && !isdigit(c); ){}
+            cin.unget();
+        }
+        if (cin) {
+            if (answer == 1){
+                playerCards.push_back(deckInUse.drawCard());
+                randomDrawDealerCard();
+                check = true;
+            }else if (answer == 2){ 
+                checkWinner();
+                randomDrawDealerCard();
+                check = true;
+            } else{
+                cout << "Pleae give a valid input: either 1 or 2. " << endl; 
+                check = false;
+                continue;
+            }
         }
     }
-    
     return;
 
 }
@@ -89,8 +99,6 @@ void Blackjack::printRules() const{
          << "the player closest to 21 wins. ";
     return;
 }
-
-//void Blackjack::furtherPlay(); //usikkert om denne trengs likevel!
 
 void Blackjack::checkWinner(){
     if (playerPoints == 21 && dealerPoints != 21){
@@ -120,10 +128,9 @@ void Blackjack::getGameWinner(Blackjack& newGame) const{
 
 void Blackjack::randomDrawDealerCard(){
     if (dealerPoints < 17){
-        //makes it random if dealer draws a new card. 
+        //makes it random if dealer draws a new card. (in theory a 50/50 chance) 
         srand(static_cast<unsigned int>(time(nullptr))); 
         int randomNumber = rand() % 2;
-        cout << "random number: " << randomNumber << endl;
         if (randomNumber == 0){
             dealerCards.push_back(deckInUse.drawCard());
         }
