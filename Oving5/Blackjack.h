@@ -1,24 +1,30 @@
 #include "std_lib_facilities.h"
 #include "CardDeck.h"
 
-//Prøver å kun bruke Blackjack-klassen først!
 class Blackjack{
 private: 
     vector<Card> dealerCards;
     vector<Card> playerCards;
-    int dealerPoints;
-    int playerPoints;
+    CardDeck deckInUse;
+    int dealerPoints{0};
+    int playerPoints{0};
     string winner;
+    bool moreGame{true};
     void printShortDealerCards() const;
     void printShortPlayerCards() const;
+    void furtherPlay();
+    void checkWinner();
+    char answer{'N'};
+    void randomDrawDealerCard();
 public: 
     Blackjack();
     void printRules() const;
-    string getWinner() const { return winner; }
+    void getGameWinner(Blackjack& newGame) const;
     //vector<Card> getDealerCards() const { return dealerCards; }
     //Card getFirstDealerCard() const { return dealerCards[0] }
     vector<Card> getPlayerCards() const { return playerCards; }
-    void printGame() const;
+    void printGame();
+    bool getMoreGame() const { return moreGame; }
     
 };
 

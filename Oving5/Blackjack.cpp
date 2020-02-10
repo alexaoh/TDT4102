@@ -3,20 +3,15 @@
 
 Blackjack::Blackjack(){
     CardDeck deck;
-    deck.shuffle();
+    deckInUse = deck;
+    deckInUse.shuffle();
     for (int i = 0; i < 4; i++){
         if (i % 2 == 0){
-            playerCards.push_back(deck.drawCard());
+            playerCards.push_back(deckInUse.drawCard());
         }else{
-            dealerCards.push_back(deck.drawCard());
+            dealerCards.push_back(deckInUse.drawCard());
         }
     }
-    PointsInCardVector player(playerCards);
-    playerPoints = player.getPointsInCardDeck();
-
-    PointsInCardVector dealer(dealerCards);
-    dealerPoints = dealer.getPointsInCardDeck();
-    
 
 }
 
@@ -39,28 +34,49 @@ void Blackjack::printShortPlayerCards() const{
 }
 
 
-void Blackjack::printGame() const{
-    cout << "These are your cards: " << endl;
-    printShortPlayerCards();
-    cout << "Testing: " << endl; 
-    printShortDealerCards(); 
-    cout << endl;
-    cout << "The dealer has been delt the same amount of cards. His first card is: " << endl;
-	cout << dealerCards[0].toStringShort();
-	cout << endl; 
-    char answer{'N'};
-    cout << "The scores are: " << endl;
-    cout << "Player: " << playerPoints << endl;
-    cout << "Dealer: " << dealerPoints << endl; 
-    cout << "Do you want to draw another card? (Y/N)" << endl; 
-    cin >> answer;
+void Blackjack::printGame(){
 
-    //Get input until it is a character! Fix later!
-    if (answer == 'N'){
-        //Check who wins
-    } else{
-        //Draw new card
+    while (moreGame == true){
+        PointsInCardVector player(playerCards);
+        playerPoints = player.getPointsInCardDeck();
+
+        PointsInCardVector dealer(dealerCards);
+        dealerPoints = dealer.getPointsInCardDeck();
+
+        cout << "These are your cards: " << endl;
+        printShortPlayerCards();
+        cout << "Testing: " << endl; 
+        printShortDealerCards(); 
+        cout << endl;
+        cout << "The dealer's first card is: " << endl;
+        cout << dealerCards[0].toStringShort();
+        cout << endl; 
+        cout << "The scores are: " << endl;
+        cout << "Player: " << playerPoints << endl;
+        cout << "Dealer: " << dealerPoints << endl; 
+        checkWinner();
+        if (moreGame == false){
+            break;
+
+        }
+        cout << "Do you want to draw another card? (Y/N)" << endl; 
+        cin >> answer;
+
+        
+
+        if (answer == 'Y'){
+            playerCards.push_back(deckInUse.drawCard());
+            randomDrawDealerCard();
+        }
+
+        else{ //If answer == 0
+            checkWinner();
+            randomDrawDealerCard();
+        }
     }
+    
+    return;
+
 }
 
 void Blackjack::printRules() const{
@@ -74,6 +90,46 @@ void Blackjack::printRules() const{
     return;
 }
 
+//void Blackjack::furtherPlay(); //usikkert om denne trengs likevel!
+
+void Blackjack::checkWinner(){
+    if (playerPoints == 21 && dealerPoints != 21){
+        moreGame = false;
+        winner = "Player won!";
+    } else if (playerPoints < 21 && (playerPoints > dealerPoints && dealerPoints > 21)){
+        moreGame = false;
+        winner = "Player won!";
+    } else if (dealerPoints > 21 && playerPoints <= 21){
+        moreGame = false;
+        winner = "Player won!";
+    }  else if (dealerPoints < 21 && playerPoints < 21){
+        moreGame = true;
+    } else{
+        moreGame = false;
+        winner = "Dealer won!";
+    }
+    return;
+}
+
+void Blackjack::getGameWinner(Blackjack& newGame) const{
+    if (newGame.moreGame == false){
+		cout << newGame.winner << endl;
+	}
+    return;
+} 
+
+void Blackjack::randomDrawDealerCard(){
+    if (dealerPoints < 17){
+        //makes it random if dealer draws a new card. 
+        srand(static_cast<unsigned int>(time(nullptr))); 
+        int randomNumber = rand() % 2;
+        cout << "random number: " << randomNumber << endl;
+        if (randomNumber == 0){
+            dealerCards.push_back(deckInUse.drawCard());
+        }
+    }
+    return;
+}
 PointsInCardVector::PointsInCardVector(vector<Card> cards){
     for (int i = 0; i < cards.size(); i++){
         int cardValue = static_cast<int>(cards[i].getRank());

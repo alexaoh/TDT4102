@@ -28,10 +28,22 @@ int main()
 	cout << "New deck after drawing last card: " << endl;
 	newDeck.printShort();
 
-	cout << "Begin a new game of Blackjack: " << endl;
-	Blackjack newGame;
-	newGame.printRules();
-	newGame.printGame();
+	bool playMore{true};
+	char answer{'N'};
+	while (playMore == true){
+		cout << "Begin a new game of Blackjack: " << endl;
+		Blackjack newGame;
+		newGame.printRules();
+		newGame.printGame();
+		newGame.getGameWinner(newGame);
+		cout << endl; 
+		cout << "Du you want to play again? (Y/N)" << endl; 
+		cin >> answer;
+		if (answer == 'N'){
+			playMore = false;
+		}
+	}
+	
 
 	/*Task 1e Teori: 
 	Fordeler ved å bruke symboler kontra heltall og strenger i koden: 
