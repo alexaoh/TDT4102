@@ -60,4 +60,3 @@ const Card CardDeck::drawCard(){
     cards.erase(cards.end()-1); //This does not work with regular index. Why?! Iterator? 
     return card;
 }
-

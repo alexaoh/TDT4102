@@ -6,6 +6,8 @@ class Blackjack{
 private: 
     vector<Card> dealerCards;
     vector<Card> playerCards;
+    int dealerPoints;
+    int playerPoints;
     string winner;
     void printShortDealerCards() const;
     void printShortPlayerCards() const;
@@ -16,10 +18,20 @@ public:
     //vector<Card> getDealerCards() const { return dealerCards; }
     //Card getFirstDealerCard() const { return dealerCards[0] }
     vector<Card> getPlayerCards() const { return playerCards; }
-    
     void printGame() const;
     
 };
+
+class PointsInCardVector{
+public: 
+    PointsInCardVector(vector<Card> cards);
+    int getPointsInCardDeck() const { return pointsInCardVector; } 
+private: 
+    int pointsInCardVector{0};
+    int pictureRank{10};
+};
+
+/*
 
 class DealCardDecks{
 private: 
@@ -52,7 +64,4 @@ public:
     int getTotalPoints() const;
 
 };
-
-class PointsPerCard{
-    //Maybe practical to define the points of the cards here?
-};
+*/
