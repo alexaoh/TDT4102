@@ -2,6 +2,8 @@
 
 1. Q about the constructor of CourseCatalog: Should i define one for it? Or should it just use a default constructor when I don't want to pass arguments when initializing an object of the class?
 
+2. How to readFromFile in to CourseCatalog?
+
 
 ***Check LF!!*** 
 

@@ -2,8 +2,10 @@
 #include "task1.h"
 #include "task2.h"
 #include "task3.h"
+#include "task4.h"
 
 void addSubjects(CourseCatalog& catalog);
+vector<Temps> readAllTempsFromFile(string filename);
 
 int main()
 {
@@ -41,6 +43,13 @@ int main()
 	//NTNU.readFromFile("test.txt"); // får ikke denne til å virke! Prøv mer senere!
 	//cout << NTNU;
 
+	vector<Temps> t;
+
+	t = readAllTempsFromFile("temperatures.txt");
+
+	for (const auto x : t){
+		cout << x << endl; 
+	}
 
 }
 
@@ -55,4 +64,17 @@ void addSubjects(CourseCatalog& catalog){
 	catalog.addCourse("TDT4102", "C++");
 
 	return; 
+}
+
+vector<Temps> readAllTempsFromFile(string filename){
+    vector<Temps> temps;
+    ifstream ist{filename};
+    string in;
+    while (true){
+        if (ist.eof()) break;
+        Temps t; 
+        ist >> t;
+        temps.push_back(t);
+    }
+    return temps;
 }
