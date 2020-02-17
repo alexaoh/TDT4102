@@ -28,24 +28,16 @@ ostream& operator<<(ostream& os, const CourseCatalog& catalog){
     return os; 
 }
 
-//Får ikke denne til å virke som jeg ønsker!?
 void CourseCatalog::readFromFile(const string filename){
     ifstream ist{filename};
     if (!ist) error("Can't open input file, ", filename);
-    string first; 
-    string second;
-    string temp;
-    for (char in; ist >> in; ){
-        if (in == '|'){
-            catalog[first] = "temp";
-            temp = first;
-            first = "";
-        } else if (in == '\n'){
-            catalog[temp] = first; 
-            first = "";
-        } else{
-            first.push_back(in);
+    
+    for (Course c; ist>>c; ){
+        if (ist.fail()){ //Denne fungerer ikke, fordi den failer i betingelsen og går aldri inn i løkka!
+                        //Hvordan kunne jeg "fått tak i failen"? (den svslutter bare løkka når den failer!)
+            error ("ikke |");
         }
+        catalog[c.getCourseCode()] = c.getCourseName();
     }
     return; 
 
@@ -55,9 +47,29 @@ void CourseCatalog::writeToFile(const string filename){
     ofstream ost{filename};
     if (!ost) error("Can't open output file, ", filename);
     for (const auto cat : catalog){
-        ost << cat.first << "|" << cat.second << endl; 
+        ost << cat.first << " | " << cat.second << endl; 
     }
     return;
 
+
+}
+
+istream& operator>>(istream& is, Course& c){
+    //Reads a new key-value pair into c
+    //Assume format: CourseCode|Coursename
+    // --> Does not work if \t in Coursename. Fix?
+
+    char ch1;
+    string c1;
+    string c2;
+    is >> c1 >> ch1 >> c2;
+    if (!is) return is;
+    if (ch1!='|'){
+        is.clear(ios_base::failbit);
+        return is;
+    }
+    c.courseCode = c1;
+    c.courseName = c2;
+    return is;
 
 }

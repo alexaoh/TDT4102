@@ -12,3 +12,13 @@ public:
     void readFromFile(const string filename);
     void writeToFile(const string filename);
 };
+
+class Course{ //used to make new readings. 
+    string courseCode;
+    string courseName;
+public: 
+    friend istream& operator>>(istream&, Course&);//Used when reading from file!
+    string getCourseName() { return courseName ;};
+    string getCourseCode() { return courseCode ;};
+    
+};

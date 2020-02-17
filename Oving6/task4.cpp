@@ -27,7 +27,7 @@ vector<Temps> readAllTempsFromFile(string filename){
 }
 */
 
-ostream& operator<<(ostream& os, const Temps& t){
+ostream& operator<<(ostream& os, Temps& t){
     os << "Max temp: " << t.max << "|" << "Min temp: " << t.min; 
     return os;
 }

@@ -1,1 +1,3 @@
-TDT2002|Dette er en test
+TDT4102 | C++
+TDT4110 | Informasjonsteknologi grunnkurs
+TMA4100 | Matematikk1

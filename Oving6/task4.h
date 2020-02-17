@@ -5,5 +5,7 @@ class Temps{
     double min{0.0};
 public: 
     friend istream& operator>>(istream& is, Temps& t);
-    friend ostream& operator<<(ostream& os, const Temps& t); //used to print the vectors for testing in main. 
+    friend ostream& operator<<(ostream& os, Temps& t); //used to print the vectors for testing in main. 
+    double getMin() const { return min; }; 
+    double getMax() const { return max; };
 };
