@@ -6,20 +6,20 @@ protected:
     int age; 
 public: 
     Animal(string name, int age):name{name}, age{age}{};
-    virtual string toString(){ return "Animal: "+to_string(name)+","+to_string(age); }
-    //Usikker på om denne funk virker per nå. Ikke testet enda. 
+    virtual string toString() = 0; //pure virtual function
 
 };
 
 class Cat : public Animal{
 public: 
-    //tror ikke at dette er rett måte å gjøre det på!?
-    Cat(){ Animal::Animal(name, age) };
-    string toString(){ return "Cat: "+to_string(name)+","+to_string(age); }
+    Cat(string name, int age) : Animal{name, age}{};
+    string toString() override { return "Cat: "+to_string(name)+", "+to_string(age); }
 };
 
 class Dog : public Animal{
 public: 
-
-    string toString(){ return "Dog: "+to_string(name)+","+to_string(age); }
+    Dog(string name, int age) : Animal(name, age){};
+    string toString() override { return "Dog: "+to_string(name)+", "+to_string(age); }
 };
+
+void testAnimal();
