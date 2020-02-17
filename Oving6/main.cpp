@@ -42,7 +42,7 @@ int main()
 	//NTNU.readFromFile("test.txt"); // får ikke denne til å virke! Prøv mer senere!
 	//cout << NTNU;
 
-	
+	/*	
 	vector<Temps> t;
 
 	t = readAllTempsFromFile("temperatures.txt");
@@ -50,6 +50,8 @@ int main()
 	for (auto x : t){
 		cout << x << endl; 
 	}
+	*/
+	buildGraph();
 	
 
 }

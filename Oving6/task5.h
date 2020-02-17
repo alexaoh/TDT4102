@@ -1,7 +1,7 @@
 #include "task4.h"
 #include "std_lib_facilities.h"
 
-constexpr int xmax = 600;
+constexpr int xmax = 505;
 constexpr int ymax = 400;
 
 constexpr int xoffset = 100;
@@ -28,13 +28,14 @@ const int end_temp = findMaxTemp(readings);
 cout << "Max temp: " << to_string(end_temp) << "| Min temp: " << to_string(base_temp) << endl;
 */
 
-//guess som values
+//guess some values
 const int base_temp = -14;
 const int end_temp = 35;
 
 constexpr double xscale = double(xlength)/(end_temp-base_temp);
 constexpr double yscale = double(ylength)/100;
 
+//need to fix some scaling!
 class Scale{
     int cbase; 
     int vbase;
@@ -43,4 +44,6 @@ public:
     Scale(int b, int vb, double s):cbase{b}, vbase{vb}, scale{s}{}
     int operator()(int v) const { return cbase + (v-vbase)*scale; }
 };
+
+void buildGraph();
 

@@ -4,6 +4,8 @@
 
 2. How to readFromFile in to CourseCatalog? Does not work :(
 
+3. Which header-files am I actually using when graphing in task 5? Not too clearly stated in the book, can't find it there :(
+
 
 ***Check LF!!*** 
 
