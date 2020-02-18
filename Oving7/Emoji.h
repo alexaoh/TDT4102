@@ -33,4 +33,28 @@ public:
 	virtual ~Emoji() {}
 };
 
+class Face : public Emoji{
+	Point co; 
+	int ro; 
+	Circle face{co,ro};
 
+public: 
+	Face(Point c, int r, Color f):co{c},ro{r} { face.set_fill_color(f); }
+	virtual void attach_to(Graph_lib::Window&) override = 0;
+	int getRadius() const { return ro; }
+	Point getCentrePoint() const { return co; }
+};
+
+class EmptyFace : public Face {
+	Point cEye1; //tanken er å gette posisjon og radius til Face, og justere på de verdiene når øynene initialiseres. 
+	int rEye1;
+	Point cEye2; 
+	int rEye2;
+	Color eyeColor;
+public: 
+	EmptyFace(Point faceCentre, int faceRadius, Color faceColor, Color eyeColor):Face{faceCentre, faceRadius, faceColor}, eyeColor{eyeColor
+	}{}
+
+	virtual void attach_to(Graph_lib::Window&) = 0;
+
+};
