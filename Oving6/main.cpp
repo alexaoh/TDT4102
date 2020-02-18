@@ -15,7 +15,7 @@ int main()
 	//Task 2: 
 	//charCounterInFile();
 
-	//CourseCatalog NTNU;
+	CourseCatalog NTNU;
 	/*
 	NTNU.addCourse("TDT4102", "Object oriented programming in C++");
 	NTNU.addCourse("TMA4120", "Matematikk 4K");
@@ -35,12 +35,12 @@ int main()
 	cout << NTNU;
 	*/
 
-	//addSubjects(NTNU);
+	addSubjects(NTNU);
 	//cout << NTNU;
 
 	//NTNU.writeToFile("test.txt"); //Denne virker som den skal
-	//NTNU.readFromFile("test.txt"); // får ikke denne til å virke! Prøv mer senere!
-	//cout << NTNU;
+	NTNU.readFromFile("test.txt"); // får ikke denne til å virke! Prøv mer senere!
+	cout << NTNU;
 
 	/*	
 	vector<Temps> t;
@@ -51,7 +51,7 @@ int main()
 		cout << x << endl; 
 	}
 	*/
-	buildGraph();
+	//buildGraph();
 	
 
 }
@@ -64,7 +64,7 @@ void addSubjects(CourseCatalog& catalog){
 
 	//operator[] overwrites the existing key-value pair
 	//insert() inserts if it does not exist, but does not overwrite if it exists. 
-	catalog.addCourse("TDT4102", "C++");
+	//catalog.addCourse("TDT4102", "C++");
 
 	return; 
 }
