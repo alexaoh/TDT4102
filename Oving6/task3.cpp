@@ -41,7 +41,8 @@ void CourseCatalog::readFromFile(const string filename){
         }
 
         if (ist.fail()){
-            error("Ikke | som delimiter");
+            string s{"Ikke | som delimiter"};
+            throw runtime_error(s);
         }
         Course c; 
         ist >> c;
@@ -79,6 +80,7 @@ void CourseCatalog::readFromFile(const string filename){
     return;
     */
     
+    return;
     
 
 }
@@ -95,15 +97,15 @@ void CourseCatalog::writeToFile(const string filename){
 }
 
 istream& operator>>(istream& is, Course& c){
-    //Reads a new key-value pair into c
-    //Assume format: CourseCode|Coursename
+    //Reads a new key-value pair into Course c
+    //Assume format: CourseCode | Coursename
 
     char delimiter;
     string courseCode;
     string courseName;
-    //stringstream ss(is);
+    //stringstream ss(is) --> does not work, since is already is a stream (?)
     is >> courseCode >> delimiter;
-    getline(is, courseName);
+    getline(is, courseName); //gets the rest of the stream, in case the courseName consists of several strings, 
 
     if (!is) return is;
     if (delimiter!='|'){
