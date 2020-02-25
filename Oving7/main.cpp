@@ -41,5 +41,9 @@ int main()
 	SadFace face3{Point{500, 200}, emojiRadius, Color::red, Color::black};
 	face3.attach_to(win);
 
+	//Se oppgaven: Emojien skal festes til skjerm på en annen måte enn jeg har gjort"
+	//Se over øvingen på nytt, og pass på at jeg har gjort den på en fornuftig måte!
+	//Det virker lite fornuftig per nå!
+
 	win.wait_for_button();
 }

@@ -83,5 +83,6 @@ public:
 };
 
 class AngryFace : public EmptyFace {
+	
 
 };
