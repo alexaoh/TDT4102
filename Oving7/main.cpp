@@ -5,7 +5,7 @@
 // Size of window and emoji radius
 constexpr int xmax = 1000;
 constexpr int ymax = 600;
-constexpr int emojiRadius = 50;
+constexpr int emojiRadius = 75;
 
 int main()
 {
@@ -31,6 +31,15 @@ int main()
 	 *  - initialize emojis
 	 *  - connect emojis to window
 	 **/
+
+	EmptyFace face1{Point{200, 200},emojiRadius, Color::yellow, Color::white};
+	face1.attach_to(win);
+
+	SmilingFace face2{Point{350, 200}, emojiRadius, Color::blue, Color::green};
+	face2.attach_to(win);
+
+	SadFace face3{Point{500, 200}, emojiRadius, Color::red, Color::black};
+	face3.attach_to(win);
 
 	win.wait_for_button();
 }
