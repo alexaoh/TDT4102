@@ -53,12 +53,8 @@ class EmptyFace : public Face {
 	Circle eye1{cEye1, rEye1};
 	Circle eye2{cEye2, rEye2};
 public: 
-	EmptyFace(Point faceCentre, int const faceRadius, Color faceColor, Color eyeColor):Face{faceCentre, faceRadius, faceColor},
-	cEye1{Point{faceCentre.x-faceRadius/2, faceCentre.y-faceRadius/3}}, 
-	rEye1{faceRadius/3}, cEye2{Point{faceCentre.x+faceRadius/2, faceCentre.y-faceRadius/3}}, rEye2{faceRadius/3}
-	{ eye1.set_fill_color(eyeColor), eye2.set_fill_color(eyeColor); }
-
-	virtual void attach_to(Graph_lib::Window&) override;
+	EmptyFace(Point faceCentre, int const faceRadius, Color faceColor, Color eyeColor);
+	void attach_to(Graph_lib::Window&) override;
 
 };
 
@@ -82,7 +78,23 @@ public:
 	void attach_to(Graph_lib::Window&) override;
 };
 
-class AngryFace : public EmptyFace {
-	
+class AngryFace : public Face {
+	Point cEye1;
+	int rEye1;
+	Point cEye2; 
+	int rEye2;
+	Circle eye1{cEye1, rEye1};
+	Circle eye2{cEye2, rEye2};
+	Point faceC;
+	int const faceR;
+	Arc upperLip{Point{faceC.x, faceC.y + 40}, faceR, faceR-20, 20, 160};
+	Arc lowerLip{Point{faceC.x, faceC.y + 40}, faceR, faceR-40, 20, 160};
+	Line eyebrowLeft;
+	Line eyebrowRight;
+public:
+	AngryFace(Point faceCentre, int const faceRadius, Color faceColor, Color eyeColor);
+	void attach_to(Graph_lib::Window&) override;
 
 };
+
+void attachAllEmojis(Vector_ref<Emoji>& emojis, Graph_lib::Window& win);

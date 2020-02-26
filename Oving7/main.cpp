@@ -32,18 +32,22 @@ int main()
 	 *  - connect emojis to window
 	 **/
 
-	EmptyFace face1{Point{200, 200},emojiRadius, Color::yellow, Color::white};
-	face1.attach_to(win);
+	Vector_ref<Emoji> emojis;
+	
+	EmptyFace faceEmpty{Point{200, 200},emojiRadius, Color::yellow, Color::white};
+	emojis.push_back(faceEmpty);
 
-	SmilingFace face2{Point{350, 200}, emojiRadius, Color::blue, Color::green};
-	face2.attach_to(win);
+	SmilingFace faceSmiley{Point{350, 200}, emojiRadius, Color::blue, Color::green};
+	emojis.push_back(faceSmiley);
 
-	SadFace face3{Point{500, 200}, emojiRadius, Color::red, Color::black};
-	face3.attach_to(win);
+	SadFace faceSad{Point{500, 200}, emojiRadius, Color::red, Color::black};
+	emojis.push_back(faceSad);
 
-	//Se oppgaven: Emojien skal festes til skjerm på en annen måte enn jeg har gjort"
-	//Se over øvingen på nytt, og pass på at jeg har gjort den på en fornuftig måte!
-	//Det virker lite fornuftig per nå!
+	AngryFace faceAngry{Point{650, 200}, emojiRadius, Color::red, Color::black};
+	emojis.push_back(faceAngry);
+
+
+	attachAllEmojis(emojis, win);
 
 	win.wait_for_button();
 }
