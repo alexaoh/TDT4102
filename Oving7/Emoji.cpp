@@ -40,6 +40,8 @@ AngryFace::AngryFace(Point faceCentre, int const faceRadius, Color faceColor, Co
     eyebrowRight(Point{faceCentre.x+faceRadius/2-25, faceCentre.y-faceRadius/3}, Point{faceCentre.x+faceRadius/2, faceCentre.y-faceRadius/3-15}){ 
     eye1.set_fill_color(eyeColor);
     eye2.set_fill_color(eyeColor); 
+    eyebrowLeft.set_style(Line_style(Line_style::solid, 4));
+    eyebrowRight.set_style(Line_style(Line_style::solid, 4));
     
 }
 

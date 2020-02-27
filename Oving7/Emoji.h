@@ -39,7 +39,7 @@ class Face : public Emoji{
 	Circle face{co,ro};
 
 public: 
-	Face(Point c, int const r, Color f):co{c},ro{r} { face.set_fill_color(f); }
+	Face(Point c, int const r, Color f):co{c},ro{r} { face.set_fill_color(f), face.set_style(Line_style(Line_style::solid, 3)); }
 	virtual void attach_to(Graph_lib::Window&) override = 0;
 	int getRadius() const { return ro; }
 	Point getCentrePoint() const { return co; }
