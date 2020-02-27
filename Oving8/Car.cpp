@@ -9,4 +9,3 @@ void Car::reserveFreeSeat(){
     freeSeats--;
     return;
 }
-

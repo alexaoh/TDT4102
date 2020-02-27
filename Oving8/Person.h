@@ -1,10 +1,11 @@
 #include "std_lib_facilities.h"
 #include "Car.h"
+#pragma once
 
 class Person{
     string name;
     string email;
-    Car* car; //Hvorfor dette er relevant er forklart godt i 17.9.1
+    Car* car;
 public: 
     Person(string noim, string mailAddress, Car* carro = nullptr):name{noim}, email{mailAddress}, car{carro}{};
     string getName() const { return name; };
