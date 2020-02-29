@@ -1,5 +1,6 @@
 #include "std_lib_facilities.h"
 #include "Person.h"
+#include "Graph.h"
 
 enum class Campus{
     Trondheim=1, Ålesund, Gjøvik
@@ -25,12 +26,13 @@ public:
     string getSubject() const { return subject; }
     const Person* getLeader() const { return leader; }
 
-    //Oppgave 3f --> må visst fjerne pekeren til objectet fra meetings-settet også?
-    ~Meeting() { delete[] this; }//Aner ikke om dette er rett!? Må lese!
+    ~Meeting(){}
 
     void addParticipant(Person* p){ participants.insert(p); }
     //hvorfor fungerer addParticipant når Person* p ikke er const? 
     vector<string> getParticipantList();
+    vector<const Person*> findPotentialCoDriving();
+    //her fungere det IKKE uten const!
 };
 
 ostream& operator<<(ostream& os, Meeting& m);
