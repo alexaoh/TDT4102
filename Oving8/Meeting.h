@@ -2,6 +2,8 @@
 #include "Person.h"
 #include "Graph.h"
 
+#pragma once
+
 enum class Campus{
     Trondheim=1, Ålesund, Gjøvik
 };

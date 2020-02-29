@@ -2,6 +2,7 @@
 #include "Car.h"
 #include "Person.h"
 #include "Meeting.h"
+#include "MeetingWIndow.h"
 
 int main()
 {
@@ -34,6 +35,8 @@ int main()
     }
     cout << endl;
 
-
+    MeetingWindow win{Point{100, 100}, 500, 600, "GUI"};
+    gui_main();
+    
 
 }

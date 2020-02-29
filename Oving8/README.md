@@ -6,6 +6,8 @@
 
 3. IMPORTANT: Får ikke operator-overlastinga til Campus til å fungere!?
 
+4. Hvilke av source-filene er egt nødvendige å importere i MeetingWindow.h? Har importert mange!
+
 ***Check LF!!*** 
 
 ## Recommended theory (PPP):
