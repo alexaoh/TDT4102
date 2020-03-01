@@ -14,13 +14,26 @@ class MeetingWindow : public Window{
     static constexpr int btnH{40};
     static constexpr int fieldW{200};
     static constexpr int fieldH{40};
-    static constexpr int fieldPad{50};
+    static constexpr int fieldPad{120};
 
     Button quitBtn; 
     Button personNewBtn;
     In_box personName;
     In_box personEmail;
     Vector_ref<Person> people; 
+
+    //Voluntary GUI expansion
+    In_box personSeats;
+    Vector_ref<Car> cars;
+    Multiline_out_box data;
+    Menu pageMenu;
+    In_box meetingSubject;
+    In_box meetingDay;
+    In_box meetingStart;
+    In_box meetingEnd;
+    Choice meetingLocation;
+    Choice meetingLeader;
+    Vector<const Person*> leaders;
 
 public: 
     MeetingWindow(Point xy, int w, int h, const string& title);
@@ -29,7 +42,11 @@ public:
     static void cb_new_person(Address, Address pw);
     void printPeople();
 
+    //Voluntary GUI expansion
+    void displayPeople();
+    void showPersonPage();
+    void showMeetingPage();
+    static void cb_persons(Address, Address pw);
+    static void cb_meetings(Address, Address pw);
 
 };
-
-

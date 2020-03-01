@@ -22,6 +22,7 @@ int main()
     Jeg måtte legge inn en sjekk for nullptr, se Person::hasAvailableSeats().
     */
 
+    /*
     //Meetings:
     cout << endl << endl; 
     Meeting møte1{13, 10, 12, Campus::Trondheim, "Corona", &john};
@@ -35,13 +36,14 @@ int main()
         cout << *x;
     }
     cout << endl;
+    */
 
-    /*
+    
     //MeetingWindow:
-    MeetingWindow win{Point{100, 100}, 500, 600, "GUI"};
+    MeetingWindow win{Point{100, 100}, 700, 600, "GUI"};
     gui_main();
 
     win.printPeople();
-    */
+    
 
 }
