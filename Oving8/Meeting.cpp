@@ -30,13 +30,13 @@ ostream& operator<< (ostream& os, Campus& c){
 //hvorfor ikke en friend av Meeting? Er dette rett måte å gjøre det på da?
 //Nå bruker jeg getters, i stedet for de private variablene, siden jeg ikke har tilgang til dem uten friend. 
 ostream& operator<<(ostream& os, Meeting& m){
-    os << "Meeting: \n" 
-       << "Subject: " << m.getSubject() << endl
+    os << setw(22) << "Meeting: " << endl
+       << setw(22) << "Subject: " << m.getSubject() << endl
        //<< "Location: " << m.getLocation() << endl //venter med denne for now
        //Skjønner ikke hvorfor den ikke fungerer?
-       << "Start Time: " << m.getStartTime() << endl
-       << "End Time: " << m.getEndTime() << endl
-       << "Meeting leader: " << *m.getLeader() << endl;
+       << setw(22) << "Start Time: " << m.getStartTime() << endl
+       << setw(22) << "End Time: " << m.getEndTime() << endl
+       << setw(22) << "Meeting leader: " << *m.getLeader() << endl;
     os << "List of participants: " << endl;
     for (auto part : m.getParticipantList()){
         os << part << " ";

@@ -15,7 +15,7 @@ bool Person::hasAvailableSeats() const{
 }
 
 ostream& operator<<(ostream& os, const Person& p){
-    os << "Name: " << p.name << ", " << p.email << ". \n" 
-       << "Has room in own car: " << boolalpha << p.hasAvailableSeats() << ".";
+    os << "Name: " << p.name << ", Email: " << p.email << ". \n" 
+       << " Has room in own car: " << boolalpha << p.hasAvailableSeats() << ".";
     return os;
 }
