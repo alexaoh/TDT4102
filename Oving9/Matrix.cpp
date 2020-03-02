@@ -27,7 +27,7 @@ Matrix::Matrix(int nRows, int nColumns):rows{nRows}, columns{nColumns}{
 Matrix::Matrix(int nRows):Matrix{nRows, nRows}{
     for (int i = 0; i<rows; i++){
         for (int e = 0; e < columns; e++){
-            if (i = e) table[i][e] = 1;
+            if (i == e) table[i][e] = 1;
         }
     }
 }

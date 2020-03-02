@@ -1,5 +1,6 @@
 #include "iostream"
 #include "Matrix.h"
+#include "dummyTest.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ int main(){
 
 	//Task 1: createFibonacci();
 
+	/*
 	//Task 2: 
 	Matrix tabell{2,2};
 	
@@ -19,6 +21,25 @@ int main(){
 			cout << tabell[i][e] << " "; //dette fungerer åpenbart ikke enda!
 		}
 	}
+	*/
+
+	//Task 3: Intermezzo: Kopiering og tilordning
+	/*
+	a) Hva skrives ut?
+	Mitt svar: 
+	a: 4
+	b: 4
+	c: 4
+
+	a: 5
+	b: 5
+	c: 5
+	Tenker dette siden alle peker til den samme num-pekeren.
+	Tester koden nedenfor: 
+	--> svaret mitt ovenfor stemte! Dette er fordi pekere utfører shallow copy: de kopierer kun pekeren, ikke hva pekeren peker til (slik som i deep copy)
+	Programmet crasher på slutten (tror jeg) fordi den samme destruktoren blir kalt for både a, b og c, selv om det ikke er flere elementer igjen etter a er destroyed (siden de deler elementer!)
+	*/
+	dummyTest();
 	
 }
 
