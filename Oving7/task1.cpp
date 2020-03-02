@@ -25,9 +25,13 @@ void testAnimal(){
     animals.push_back(Katja);
     animals.push_back(Jitty);
 
-    //range-based for loop fungerte ikke her?!
+    /*
     for (int i = 0; i<animals.size();i++){
         cout << animals[i].toString() << endl; 
+    }
+    */
+    for (auto x : animals){ //range based for loop fungerer fint!
+        cout << x->toString() << endl;
     }
 
     //ved å fjerne virtual i Animal-klassen vil ikke toString()

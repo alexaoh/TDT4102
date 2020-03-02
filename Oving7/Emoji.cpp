@@ -59,7 +59,12 @@ void AngryFace::attach_to(Graph_lib::Window& win){
 }
 
 void attachAllEmojis(Vector_ref<Emoji>& emojis, Graph_lib::Window& win){
+    /*
     for (int i = 0; i<emojis.size(); i++){
         emojis[i].attach_to(win);
+    }
+    */
+    for (auto x : emojis){ //Ser at range-based for loop fungerer som det skal!
+        x->attach_to(win);
     }
 }
