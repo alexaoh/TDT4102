@@ -18,7 +18,7 @@ vector<string> Meeting::getParticipantList(){
     return names;
 }
 
-ostream& operator<< (ostream& os, Campus& c){
+ostream& operator<< (ostream& os, Campus c){
     map<Campus, string> CampusToString;
     CampusToString[Campus::Trondheim] = "Trondheim";
     CampusToString[Campus::Ålesund] = "Ålesund";
@@ -32,8 +32,7 @@ ostream& operator<< (ostream& os, Campus& c){
 ostream& operator<<(ostream& os, Meeting& m){
     os << setw(22) << "Meeting: " << endl
        << setw(22) << "Subject: " << m.getSubject() << endl
-       //<< "Location: " << m.getLocation() << endl //venter med denne for now
-       //Skjønner ikke hvorfor den ikke fungerer?
+       << setw(22) << "Location: " << m.getLocation() << endl
        << setw(22) << "Start Time: " << m.getStartTime() << endl
        << setw(22) << "End Time: " << m.getEndTime() << endl
        << setw(22) << "Meeting leader: " << *m.getLeader() << endl;

@@ -37,13 +37,18 @@ meetingLeader{Point{fieldPad, 6*pad + 5*fieldH}, fieldW, fieldH, "Leader: "}
     attach(meetingStart);
     attach(meetingEnd);
 
-    //ikke en veldig god løsning!
+    //Dårlig løsning!
     string trndh{"Trondheim"}; 
     string gjvk{"Gjøvik"}; 
     string als{"Ålesund"};
-    meetingLocation.add(trndh);
-    meetingLocation.add(gjvk);
-    meetingLocation.add(als);
+
+    const string& trndhRef = trndh;
+    const string& gjvkRef = gjvk;
+    const string& alsRef = als;
+
+    meetingLocation.add(trndhRef);
+    meetingLocation.add(gjvkRef);
+    meetingLocation.add(alsRef);
 
     for (auto x : leaders){
         string leaderOption{x->getName()};

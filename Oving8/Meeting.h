@@ -5,7 +5,7 @@
 #pragma once
 
 enum class Campus{
-    Trondheim=1, Ålesund, Gjøvik
+    Trondheim=1, Ålesund, Gjøvik, End
 };
 
 ostream& operator<< (ostream& os, Campus& c);
@@ -29,8 +29,8 @@ public:
     const Person* getLeader() const { return leader; }
 
     ~Meeting(){}
-
-    void addParticipant(Person* p){ participants.insert(p); }
+    
+    void addParticipant(const Person* p){ participants.insert(p); }
     //hvorfor fungerer addParticipant når Person* p ikke er const? 
     vector<string> getParticipantList();
     vector<const Person*> findPotentialCoDriving();

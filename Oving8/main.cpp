@@ -6,7 +6,7 @@
 
 int main()
 {
-   
+    /*
     //Tests for Person: 
     Person john{"John", "john@johnson.com"};
     Car cenasCar{3};
@@ -17,7 +17,7 @@ int main()
 
     cout << john << endl; 
     cout << cena << endl;
-    
+    */
     /*
     Jeg måtte legge inn en sjekk for nullptr, se Person::hasAvailableSeats().
     */
