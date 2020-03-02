@@ -1,5 +1,7 @@
 #include "iostream"
+#include "Matrix.h"
 
+using namespace std;
 
 void fillInFibonacciNumbers(int result[], int length);
 void printArray(int arr[], int length);
@@ -9,6 +11,14 @@ int main(){
 
 	//Task 1: createFibonacci();
 
+	//Task 2: 
+	Matrix tabell{2,2};
+	
+	for (int i = 0; tabell.getRows(); i++){
+		for (int e = 0; tabell.getColumns(); e++){
+			cout << tabell[i][e] << " "; //dette fungerer åpenbart ikke enda!
+		}
+	}
 	
 }
 
@@ -28,14 +38,14 @@ void fillInFibonacciNumbers(int result[], int length){
 
 void printArray(int arr[], int length){
 	for (int i = 0; i<length;i++){
-		std::cout << arr[i] << " ";
+		cout << arr[i] << " ";
 	}
 }
 
 void createFibonacci(){
-	std::cout << "How many numbers should be allocated? " << std::endl;
+	cout << "How many numbers should be allocated? " << endl;
 	int amount;
-	std::cin >> amount;
+	cin >> amount;
 	int *arr = new int[amount];
 	fillInFibonacciNumbers(arr, amount);
 	printArray(arr, amount);
