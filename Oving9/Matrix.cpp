@@ -33,10 +33,11 @@ Matrix::Matrix(int nRows):Matrix{nRows, nRows}{
 }
 
 Matrix::~Matrix(){
-    delete[] table; //er nok ikke så enkelt som dette da muligens!? Prøver derimot med dette først
+    for (int i = 0; i < rows; ++i){
+        delete [] table[i]; 
+    }
+    delete[] table;
     table = nullptr;
-
-    //https://stackoverflow.com/questions/16001803/pointer-to-pointer-dynamic-two-dimensional-array
 
 }
 

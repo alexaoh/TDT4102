@@ -34,6 +34,7 @@ int main(){
 	identity.set(1,3,55.0);
 	cout << identity << endl;
 
+	
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*
 	a) Hva skrives ut?
