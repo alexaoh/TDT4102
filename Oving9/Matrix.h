@@ -12,6 +12,9 @@ class Matrix{
 public:
     Matrix();
     Matrix(int nRows, int nColumns);
+    Matrix(const Matrix& rhs); //Copy constructor
+    Matrix& operator=(const Matrix& rhs); //Copy assignment constructor
+    //Matrix& operator=(Matrix rhs); //Copy assignment with copy-and-swap --> Only works with same-dimensional-matrices!
     explicit Matrix(int nRows);
     ~Matrix();
     double get(int row, int col) const;
@@ -21,4 +24,6 @@ public:
     bool isValid() const;
     double operator[](int i);
     friend ostream& operator<<(std::ostream& os, Matrix& m);
+    Matrix& operator+=(Matrix& rhs);
+    Matrix& operator+(Matrix& rhs);
 };

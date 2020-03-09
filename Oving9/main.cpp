@@ -34,6 +34,52 @@ int main(){
 	identity.set(1,3,55.0);
 	cout << identity << endl;
 
+	//Test copy constructor:
+	Matrix fourByFour{identity};
+	cout << fourByFour << endl;
+	identity.set(3,3, 100);
+	cout << fourByFour << endl;
+	cout << identity << endl;
+
+	//Test copy assignment:
+	Matrix fiveByFiveI{5};
+	cout << fiveByFiveI << endl;
+	fiveByFiveI = identity;
+	cout << fiveByFiveI << endl;
+
+	//Test matrix operators:
+	Matrix A{2};
+	A.set(0,0,1.0);
+	A.set(0,1,2.0);
+	A.set(1,0,3.0);
+	A.set(1,1,4.0);
+
+	Matrix B{2};
+	B.set(0,0,4.0);
+	B.set(0,1,3.0);
+	B.set(1,0,2.0);
+	B.set(1,1,1.0);
+
+	Matrix C{2};
+	C.set(0,0,1.0);
+	C.set(0,1,3.0);
+	C.set(1,0,1.5);
+	C.set(1,1,2.0);
+
+	A += B;
+	cout << A << endl;
+	cout << B << endl;
+	cout << C << endl;
+	/*
+	A = B + C;
+	cout << A << endl;
+	cout << B << endl;
+	cout << C << endl;
+	*/
+	A += B + C;
+	cout << A << endl;
+	cout << B << endl;
+	cout << C << endl;
 	
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*

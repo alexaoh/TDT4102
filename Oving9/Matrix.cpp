@@ -5,7 +5,6 @@
 
 Matrix::Matrix(){
     table = nullptr;
-
 }
 
 Matrix::Matrix(int nRows, int nColumns):rows{nRows}, columns{nColumns}{
@@ -30,6 +29,80 @@ Matrix::Matrix(int nRows):Matrix{nRows, nRows}{
             if (i == e) table[i][e] = 1.0;
         }
     }
+}
+
+Matrix::Matrix(const Matrix& rhs):rows{rhs.rows}, columns{rhs.columns}{
+    //Define the matrix table
+    table = new double*[rows]; 
+    
+    for (int i = 0; i < rows; ++i){
+        table[i] = new double[columns]; //This-pointere trengs altså ikke foran table[i] her eller lenger nede. Fungerer like fint uten. 
+    }
+    //Populate the matrix table
+    for (int i = 0; i < rows; ++i){
+        for (int e = 0; e < columns; ++e){
+            table[i][e] = *&rhs.table[i][e];
+        }
+    }
+    
+}
+
+Matrix& Matrix::operator=(const Matrix& rhs){
+    //Without copy-and-swap
+    
+    int rowsRhs = rhs.rows;
+    int columnsRhs = rhs.columns;
+    double **table1 = new double*[rowsRhs]; 
+    
+    for (int i = 0; i < rows; ++i){
+        table1[i] = new double[columnsRhs]; 
+    }
+
+    for (int i = 0; i < rowsRhs; ++i){
+        for (int e = 0; e < columnsRhs; ++e){
+            table1[i][e] = *&rhs.table[i][e];
+        }
+    }
+
+    for (int i = 0; i < rows; ++i){
+        delete[] table[i];
+    }
+    delete[] table;
+
+    table = table1;
+    rows = rowsRhs;
+    columns = columnsRhs;
+    return *this;
+}
+
+
+/*
+Matrix& Matrix::operator=(Matrix rhs){
+    //With copy-and-swap --> works with same-dimensional matrices!
+    swap(this->table, rhs.table);
+    return *this;
+}
+*/
+
+Matrix& Matrix::operator+=(Matrix& rhs){
+    if (rows != rhs.rows || columns != rhs.columns){
+        table = nullptr;
+        Matrix invalid; //Fungerer når dimennsjonene er rett!
+        return invalid; //Hvordan kan jeg returnere en ugyldig matrise som ikke blir lokal?
+    }
+    for (int i = 0; i < rows; ++i){
+        for (int e = 0; e < columns; ++e){
+            table[i][e] += rhs.table[i][e];
+        }
+    }
+    return *this;
+}
+   
+Matrix& Matrix::operator+(Matrix& rhs){
+    *this += rhs; //Automatically checks if dimensions are correct (with the += operator functioning correctly)
+    return *this; //klarer ikke uten å endre på det venstre objektet?!
+
+    
 }
 
 Matrix::~Matrix(){
