@@ -34,8 +34,8 @@ int main()
 
 	Vector_ref<Emoji> emojis;
 	
-	EmptyFace faceEmpty{Point{200, 200},emojiRadius, Color::yellow, Color::white};
-	emojis.push_back(faceEmpty);
+	//EmptyFace faceEmpty{Point{200, 200},emojiRadius, Color::yellow, Color::white};
+	//emojis.push_back(faceEmpty);
 
 	SmilingFace faceSmiley{Point{350, 200}, emojiRadius, Color::blue, Color::green};
 	emojis.push_back(faceSmiley);

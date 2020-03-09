@@ -54,7 +54,7 @@ class EmptyFace : public Face {
 	Circle eye2{cEye2, rEye2};
 public: 
 	EmptyFace(Point faceCentre, int const faceRadius, Color faceColor, Color eyeColor);
-	void attach_to(Graph_lib::Window&) override;
+	virtual void attach_to(Graph_lib::Window&) override = 0;
 
 };
 

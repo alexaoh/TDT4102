@@ -10,7 +10,8 @@ MeetingWindow::MeetingWindow(Point xy, int w, int h, const string& title):Window
 quitBtn(Point{this->x_max()-pad-btnW, pad}, btnW, btnH, "Quit", cb_quit),
 personNewBtn{Point{fieldPad, 4*pad + 3*fieldH}, btnW, btnH, "Add person", cb_new_person},
 personName(Point{fieldPad, pad}, fieldW, fieldH, "Name: "), 
-personEmail{Point{fieldPad, 2*pad + fieldH}, fieldW, fieldH, "Email: "}, 
+personEmail{Point{fieldPad, 2*pad + fieldH}, fieldW, fieldH, "Email: "}
+/*
 personSeats{Point{fieldPad, 3*pad + 2*fieldH}, fieldW, fieldH, "Add seats in car: "}, 
 data{Point{2*fieldPad, this->y_max()-4*fieldH-pad-2*btnH}, fieldW*2, fieldH*4, "People: "}, 
 pageMenu{Point{this->x_max()-2*btnW-pad, this->y_max()-btnH-pad}, btnW, btnH, Menu::Kind::horizontal, "People or meetings"}, 
@@ -19,7 +20,7 @@ meetingDay{Point{fieldPad, 2*pad + fieldH}, fieldW, fieldH, "Day: "},
 meetingStart{Point{fieldPad, 3*pad + 2*fieldH}, fieldW, fieldH, "Start: "}, 
 meetingEnd{Point{fieldPad, 4*pad + 3*fieldH}, fieldW, fieldH, "End: "}, 
 meetingLocation{Point{fieldPad, 5*pad + 4*fieldH}, fieldW, fieldH, "Location: "},
-meetingLeader{Point{fieldPad, 6*pad + 5*fieldH}, fieldW, fieldH, "Leader: "}
+meetingLeader{Point{fieldPad, 6*pad + 5*fieldH}, fieldW, fieldH, "Leader: "}*/
 
 {
     
@@ -46,10 +47,10 @@ meetingLeader{Point{fieldPad, 6*pad + 5*fieldH}, fieldW, fieldH, "Leader: "}
     const string& gjvkRef = gjvk;
     const string& alsRef = als;
 
-    meetingLocation.add(trndhRef);
+    /*meetingLocation.add(trndhRef);
     meetingLocation.add(gjvkRef);
     meetingLocation.add(alsRef);
-
+    */
     for (auto x : leaders){
         string leaderOption{x->getName()};
         meetingLeader.add(leaderOption);

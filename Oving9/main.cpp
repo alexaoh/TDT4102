@@ -12,16 +12,27 @@ int main(){
 
 	//Task 1: createFibonacci();
 
-	/*
-	//Task 2: 
-	Matrix tabell{2,2};
 	
-	for (int i = 0; tabell.getRows(); i++){
-		for (int e = 0; tabell.getColumns(); e++){
-			cout << tabell[i][e] << " "; //dette fungerer åpenbart ikke enda!
-		}
-	}
-	*/
+	//Task 2: 
+
+	Matrix zeros{3,5}; // makes array filled with zeros. 
+	cout << zeros.get(1,1) << endl;
+	zeros.set(1,1,13.0);
+	cout << zeros.get(1,1) << endl;
+	
+	Matrix identity{5}; // makes 5x5 identity matrix.
+	cout << identity.get(0,0) << endl;
+	identity.set(1,1,13.0);
+	cout << identity.get(1,1) << endl;
+
+	Matrix nonValid;
+	cout << boolalpha << nonValid.isValid() << endl;
+	cout << boolalpha << identity.isValid() << endl;
+
+	cout << zeros << endl;
+	cout << identity << endl;
+	identity.set(1,3,55.0);
+	cout << identity << endl;
 
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*
@@ -39,7 +50,8 @@ int main(){
 	--> svaret mitt ovenfor stemte! Dette er fordi pekere utfører shallow copy: de kopierer kun pekeren, ikke hva pekeren peker til (slik som i deep copy)
 	Programmet crasher på slutten (tror jeg) fordi den samme destruktoren blir kalt for både a, b og c, selv om det ikke er flere elementer igjen etter a er destroyed (siden de deler elementer!)
 	*/
-	dummyTest();
+
+	//dummyTest();
 	
 }
 

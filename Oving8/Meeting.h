@@ -30,7 +30,7 @@ public:
 
     ~Meeting(){}
     
-    void addParticipant(const Person* p){ participants.insert(p); }
+    void addParticipant(Person* p){ participants.insert(p); }
     //hvorfor fungerer addParticipant når Person* p ikke er const? 
     vector<string> getParticipantList();
     vector<const Person*> findPotentialCoDriving();
