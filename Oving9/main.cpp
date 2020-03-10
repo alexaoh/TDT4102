@@ -12,7 +12,7 @@ int main(){
 	//Task 1: createFibonacci();
 
 	
-	//Task 2: 
+	//Task 2 + 4 + 5: 
 	/*
 	Matrix zeros{3,5}; // makes array filled with zeros. 
 	cout << zeros.get(1,1) << endl;
@@ -33,9 +33,7 @@ int main(){
 	cout << identity << endl;
 	identity.set(1,3,55.0);
 	cout << identity << endl;
-	*/
-
-	/*
+	
 	Matrix identity{7};
 	//Test copy constructor:
 	Matrix fourByFour{identity};
@@ -49,7 +47,6 @@ int main(){
 	cout << fiveByFiveI << endl;
 	fiveByFiveI = identity;
 	cout << fiveByFiveI << endl;
-	*/
 	
 	//Test matrix operators:
 	Matrix A{2};
@@ -70,7 +67,7 @@ int main(){
 	C.set(1,0,1.5);
 	C.set(1,1,2.0);
 
-	/*
+	
 	A += B;
 	cout << A << endl;
 	cout << B << endl;
@@ -81,7 +78,7 @@ int main(){
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
-	*/
+	
 	
 	A += B + C;
 	cout << A << endl;
@@ -89,7 +86,7 @@ int main(){
 	cout << C << endl;
 
 	cout << A[1][0] << endl; // The operator[] overload now works!
-	
+	*/
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*
 	a) Hva skrives ut?
@@ -103,11 +100,13 @@ int main(){
 	c: 5
 	Tenker dette siden alle peker til den samme num-pekeren.
 	Tester koden nedenfor: 
-	--> svaret mitt ovenfor stemte! Dette er fordi pekere utfører shallow copy: de kopierer kun pekeren, ikke hva pekeren peker til (slik som i deep copy)
-	Programmet crasher på slutten (tror jeg) fordi den samme destruktoren blir kalt for både a, b og c, selv om det ikke er flere elementer igjen etter a er destroyed (siden de deler elementer!)
+	--> svaret mitt ovenfor stemte! Dette er fordi pekere utfører shallow copy: de kopierer kun pekeren, ikke hva pekeren peker til (slik som i deep copy).
+	Programmet crasher på slutten (tror jeg) fordi den samme destruktoren blir kalt for både a, b og c, selv om det ikke er flere elementer igjen etter a er destroyed (siden de deler elementer!). 
+	Det samme minnet forsøkes altså slettet 3 ganger!
 	*/
 
-	//dummyTest();
+	dummyTest();
+	//Etter at de to konstruktørene er lagt til skriver den ut det man hadde forventet/ønsket. 
 	
 }
 

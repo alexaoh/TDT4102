@@ -4,11 +4,14 @@ using namespace std;
 
 Dummy::Dummy(const Dummy& d):num{nullptr}{
     this->num = new int{};
-    num = d.num;
+    *num = *d.num;
 }
 
 Dummy& Dummy::operator=(const Dummy& d){
-    //Denne må implementeres next!
+    int *newNum{ new int{*d.num}};
+    delete num;
+    num = newNum;
+    return *this;
 }
 
 void dummyTest(){
