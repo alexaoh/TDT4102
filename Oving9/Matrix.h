@@ -22,8 +22,8 @@ public:
     int getRows() const { return rows; }
     int getColumns() const { return columns; }
     bool isValid() const;
-    double operator[](int i);
-    friend ostream& operator<<(std::ostream& os, Matrix& m);
-    Matrix& operator+=(Matrix& rhs);
-    Matrix& operator+(Matrix& rhs);
+    double* operator[](int i);
+    friend ostream& operator<<(ostream& os, const Matrix& m);
+    Matrix& operator+=(const Matrix& rhs);
+    Matrix operator+(const Matrix& rhs);
 };

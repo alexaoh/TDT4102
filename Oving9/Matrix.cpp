@@ -85,11 +85,10 @@ Matrix& Matrix::operator=(Matrix rhs){
 }
 */
 
-Matrix& Matrix::operator+=(Matrix& rhs){
+Matrix& Matrix::operator+=(const Matrix& rhs){
     if (rows != rhs.rows || columns != rhs.columns){
         table = nullptr;
-        Matrix invalid; //Fungerer når dimensjonene er rett!
-        return invalid; //Hvordan kan jeg returnere en ugyldig matrise som ikke blir lokal?
+        return *this; //This is an invalid matrix because of earlier nullptr functionality
     }
     for (int i = 0; i < rows; ++i){
         for (int e = 0; e < columns; ++e){
@@ -99,9 +98,10 @@ Matrix& Matrix::operator+=(Matrix& rhs){
     return *this;
 }
    
-Matrix& Matrix::operator+(Matrix& rhs){
-    *this += rhs; //Automatically checks if dimensions are correct (with the += operator functioning correctly)
-    return *this; //klarer ikke uten å endre på det venstre objektet?!
+Matrix Matrix::operator+(const Matrix& rhs){
+    Matrix A{*this};
+    A += rhs; //Automatically checks if dimensions are correct because of += operator. 
+    return A;
 
     
 }
@@ -132,11 +132,11 @@ bool Matrix::isValid() const {
     }
 }
 
-double Matrix::operator[](int i){
-    return *table[i]; //Denne må fikses!
+double* Matrix::operator[](int i){
+    return table[i];   
 }
 
-ostream& operator<<(ostream& os, Matrix& m){
+ostream& operator<<(ostream& os,const Matrix& m){
     int rows{m.rows};
     int columns{m.columns};
     if (rows <= 0 || columns <= 0) throw logic_error("Invalid matrix"); //These can be caught later if needed. 

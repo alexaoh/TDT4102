@@ -35,6 +35,7 @@ int main(){
 	cout << identity << endl;
 	*/
 
+	/*
 	Matrix identity{7};
 	//Test copy constructor:
 	Matrix fourByFour{identity};
@@ -48,8 +49,8 @@ int main(){
 	cout << fiveByFiveI << endl;
 	fiveByFiveI = identity;
 	cout << fiveByFiveI << endl;
-
-	/*
+	*/
+	
 	//Test matrix operators:
 	Matrix A{2};
 	A.set(0,0,1.0);
@@ -69,21 +70,26 @@ int main(){
 	C.set(1,0,1.5);
 	C.set(1,1,2.0);
 
+	/*
 	A += B;
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
 	
-	A = B + C;
+	
+	A = B + C;	
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
+	*/
 	
 	A += B + C;
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
-	*/
+
+	cout << A[1][0] << endl; // The operator[] overload now works!
+	
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*
 	a) Hva skrives ut?
