@@ -1,7 +1,6 @@
 #include "iostream"
 #include "Matrix.h"
 #include "dummyTest.h"
-
 using namespace std;
 
 void fillInFibonacciNumbers(int result[], int length);
@@ -14,9 +13,10 @@ int main(){
 
 	
 	//Task 2: 
-
+	/*
 	Matrix zeros{3,5}; // makes array filled with zeros. 
 	cout << zeros.get(1,1) << endl;
+
 	zeros.set(1,1,13.0);
 	cout << zeros.get(1,1) << endl;
 	
@@ -33,7 +33,9 @@ int main(){
 	cout << identity << endl;
 	identity.set(1,3,55.0);
 	cout << identity << endl;
+	*/
 
+	Matrix identity{7};
 	//Test copy constructor:
 	Matrix fourByFour{identity};
 	cout << fourByFour << endl;
@@ -42,11 +44,12 @@ int main(){
 	cout << identity << endl;
 
 	//Test copy assignment:
-	Matrix fiveByFiveI{5};
+	Matrix fiveByFiveI{3};
 	cout << fiveByFiveI << endl;
 	fiveByFiveI = identity;
 	cout << fiveByFiveI << endl;
 
+	/*
 	//Test matrix operators:
 	Matrix A{2};
 	A.set(0,0,1.0);
@@ -70,17 +73,17 @@ int main(){
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
-	/*
+	
 	A = B + C;
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
-	*/
+	
 	A += B + C;
 	cout << A << endl;
 	cout << B << endl;
 	cout << C << endl;
-	
+	*/
 	//Task 3: Intermezzo: Kopiering og tilordning
 	/*
 	a) Hva skrives ut?

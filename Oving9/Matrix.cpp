@@ -12,15 +12,16 @@ Matrix::Matrix(int nRows, int nColumns):rows{nRows}, columns{nColumns}{
     table = new double*[rows]; 
 
     for (int i = 0; i < rows; ++i){
-        table[i] = new double[columns];
-    }
-    
+        table[i] = new double[columns]{0.0}; //This populates the entire matrix with zeros
+    } //=> The loop below is completely unnecessary!
+    /*
     //Populate the matrix
     for (int i = 0; i<rows; i++){
         for (int e = 0; e < columns; e++){
             table[i][e] = 0.0;
         }
     }
+    */
 }
 
 Matrix::Matrix(int nRows):Matrix{nRows, nRows}{
@@ -54,7 +55,7 @@ Matrix& Matrix::operator=(const Matrix& rhs){
     int columnsRhs = rhs.columns;
     double **table1 = new double*[rowsRhs]; 
     
-    for (int i = 0; i < rows; ++i){
+    for (int i = 0; i < rowsRhs; ++i){
         table1[i] = new double[columnsRhs]; 
     }
 
@@ -87,7 +88,7 @@ Matrix& Matrix::operator=(Matrix rhs){
 Matrix& Matrix::operator+=(Matrix& rhs){
     if (rows != rhs.rows || columns != rhs.columns){
         table = nullptr;
-        Matrix invalid; //Fungerer når dimennsjonene er rett!
+        Matrix invalid; //Fungerer når dimensjonene er rett!
         return invalid; //Hvordan kan jeg returnere en ugyldig matrise som ikke blir lokal?
     }
     for (int i = 0; i < rows; ++i){
@@ -138,8 +139,8 @@ double Matrix::operator[](int i){
 ostream& operator<<(ostream& os, Matrix& m){
     int rows{m.rows};
     int columns{m.columns};
-    if (rows == 0 || columns == 0) throw runtime_error("Invalid matrix"); //These can be caught later if needed. 
-    if (m.isValid() == false) throw runtime_error("Invalid matrix");
+    if (rows <= 0 || columns <= 0) throw logic_error("Invalid matrix"); //These can be caught later if needed. 
+    if (m.isValid() == false) throw logic_error("Invalid matrix");
     os << "[" << endl;
     for (int i = 0; i < rows; ++i){
         os << "[";
