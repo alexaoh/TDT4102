@@ -12,12 +12,17 @@ class Tile : public Button
 
 	void set_label(string s) { label = s; redraw(); }
 	void set_label_color(Color c) { pw->labelcolor(c.as_int()); redraw();}
+	bool isMine;
 public:
-	Tile(Point pos, int size, Graph_lib::Callback cb)
+	Tile(Point pos, int size, Graph_lib::Callback cb, bool isMine=false)
 		:Button{pos, size, size, "", cb} {};
 	
 	Cell getState() const {return state; };
+	bool getIsMine() const { return isMine; };
+	void setIsMine(bool is) { isMine = is; };
 
 	void open(); // aapner ruten
 	void flag();// Flagger en rute
+
+	void setAdjMines(int n);
 };

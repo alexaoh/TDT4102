@@ -1,4 +1,5 @@
 #include "MinesweeperWindow.h"
+#include <random>
 
 MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines, const string& title) :
 	Graph_lib::Window{xy, width * cellSize, height*cellSize, title}, width{width}, height{height}, mines{mines}
@@ -9,13 +10,31 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 		for (int j = 0; j < width; ++j) {
 			int y = i* cellSize,
 				x = j * cellSize;
-			tiles.push_back(new Tile{ Point{x, y}, cellSize, cb_click });
+			tiles.push_back(new Tile{ Point{x, y}, cellSize, cb_click, false});
 			attach(tiles.back());
 		}
 	}
+	for (auto x : tiles){
+		cout << "isMine: " << x->getIsMine() << endl; 
+ 	}
 
 	//Legg til miner paa tilfeldige posisjoner
-
+	int placedMines{0};
+	int loops{0};
+	while (placedMines < mines){
+		int randomNum = rand() % tiles.size();
+		cout << randomNum << " ";
+		if (tiles[randomNum].getIsMine() == false){
+			cout << "true" << endl;
+			tiles[randomNum].setIsMine(true);
+			placedMines++;
+		}
+		loops++;
+	}
+	cout << "number of loops: " << loops;
+	for (auto x : tiles){
+		cout << "isMine: " << x->getIsMine() << endl; 
+	}
 
 	// Fjern window reskalering
 	resizable(nullptr);
@@ -44,9 +63,18 @@ vector<Point> MinesweeperWindow::adjacentPoints(Point xy) const {
 }
 
 void MinesweeperWindow::openTile(Point xy) {
+	Tile& tile = at(xy);
+	if (tile.getState() == Cell::closed){
+		tile.open();
+	}
+	
 }
 
 void MinesweeperWindow::flagTile(Point xy) {
+	Tile& tile = at(xy);
+	if (tile.getState() != Cell::open){
+		tile.flag();
+	}
 }
 
 //Kaller opentile ved venstreklikk og flagTile ved hoyreklikk/trykke med to fingre paa mac

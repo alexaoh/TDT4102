@@ -15,11 +15,30 @@ const map<Cell, string> cellToSymbol{ {Cell::closed, ""},
 									 {Cell::open, ""},
 									 {Cell::flagged, "@<"} };
 
-void Tile::open()
-{
-	static_cast<Fl_Button*>(pw)->set();//Setter en button som trykket paa, tilsvarer aapnet rute
+void Tile::open(){
+	if (state != Cell::flagged){
+		static_cast<Fl_Button*>(pw)->set();//Setter en button som trykket paa, tilsvarer aapnet rute
+		state = Cell::open;
+		if (isMine){
+			set_label("X");
+			set_label_color(minesToColor.at(2));
+		}
+	}
+	
 }
 
-void Tile::flag()
-{
+void Tile::flag(){
+	if (state == Cell::flagged){
+		state = Cell::closed;
+		set_label(cellToSymbol.at(Cell::closed));
+	} else {
+		state = Cell::flagged;
+		set_label(cellToSymbol.at(Cell::flagged));
+		set_label_color(minesToColor.at(5));
+	}
+}
+
+void Tile::setAdjMines(int n){
+	set_label(to_string(n));
+	set_label_color(minesToColor.at(n));
 }
