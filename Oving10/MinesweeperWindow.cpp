@@ -10,30 +10,19 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 		for (int j = 0; j < width; ++j) {
 			int y = i* cellSize,
 				x = j * cellSize;
-			tiles.push_back(new Tile{ Point{x, y}, cellSize, cb_click, false});
+			tiles.push_back(new Tile{ Point{x, y}, cellSize, cb_click});
 			attach(tiles.back());
 		}
 	}
-	for (auto x : tiles){
-		cout << "isMine: " << x->getIsMine() << endl; 
- 	}
 
 	//Legg til miner paa tilfeldige posisjoner
 	int placedMines{0};
-	int loops{0};
 	while (placedMines < mines){
 		int randomNum = rand() % tiles.size();
-		cout << randomNum << " ";
 		if (tiles[randomNum].getIsMine() == false){
-			cout << "true" << endl;
 			tiles[randomNum].setIsMine(true);
 			placedMines++;
 		}
-		loops++;
-	}
-	cout << "number of loops: " << loops;
-	for (auto x : tiles){
-		cout << "isMine: " << x->getIsMine() << endl; 
 	}
 
 	// Fjern window reskalering

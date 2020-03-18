@@ -14,8 +14,8 @@ class Tile : public Button
 	void set_label_color(Color c) { pw->labelcolor(c.as_int()); redraw();}
 	bool isMine;
 public:
-	Tile(Point pos, int size, Graph_lib::Callback cb, bool isMine=false)
-		:Button{pos, size, size, "", cb} {};
+	Tile(Point pos, int size, Graph_lib::Callback cb, bool is=false)
+		:Button{pos, size, size, "", cb}, isMine{is} {};
 	
 	Cell getState() const {return state; };
 	bool getIsMine() const { return isMine; };
