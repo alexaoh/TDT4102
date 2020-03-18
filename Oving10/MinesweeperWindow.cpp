@@ -70,6 +70,15 @@ void MinesweeperWindow::openTile(Point xy) {
 				} 
 			} else tile.setAdjMines(amountOfMines);
 		}
+		else{ //The game is lost. 
+			cout << "You just lost" << endl;
+			lost.draw_lines();
+			lost.set_font_size(100);
+			attach(lost);
+			redraw();
+			flush();
+
+		}		
 	}
 	
 }
@@ -101,4 +110,8 @@ void MinesweeperWindow::cb_click(Address, Address pw)
 		break;
 	}
 	win.flush();
+}
+
+void MinesweeperWindow::cb_restart(Address, Address pw){
+
 }
