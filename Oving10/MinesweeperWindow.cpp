@@ -31,7 +31,13 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 }
 
 int MinesweeperWindow::countMines(vector<Point> points) const {
-	return 0;
+	int quantity{0};
+	for (auto x : points){
+		if (at(x).getIsMine()){
+			quantity++;
+		} 
+	}
+	return quantity;
 };
 vector<Point> MinesweeperWindow::adjacentPoints(Point xy) const {
 	vector<Point> points;
@@ -55,6 +61,15 @@ void MinesweeperWindow::openTile(Point xy) {
 	Tile& tile = at(xy);
 	if (tile.getState() == Cell::closed){
 		tile.open();
+		if (!tile.getIsMine()){
+			vector<Point> v{adjacentPoints(xy)};
+			int amountOfMines{countMines(v)};
+			if (!amountOfMines){
+				for (auto x : v){
+					openTile(x); 
+				} 
+			} else tile.setAdjMines(amountOfMines);
+		}
 	}
 	
 }

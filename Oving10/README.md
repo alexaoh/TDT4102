@@ -1,5 +1,5 @@
 # Questions to the tasks
-
+1. Unsure if recursion is the optimal way to solve openTile()-function! 
 
 ***Check LF!!*** 
 
