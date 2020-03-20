@@ -41,7 +41,9 @@ private:
 	static void cb_click(Address, Address pw);
 	static void cb_restart(Address, Address pw); //tried making this instead
 
-	Text won{Point{Height()/3, Width()/3}, "Congrats! You won"};
-	Text lost{Point{Height()/3, Width()/3}, "You lost"};
+	Out_box won;
+	Out_box lost;
+
+	int tilesOpened{0}; //Counts how many tiles that have been opened. 
 	
 };

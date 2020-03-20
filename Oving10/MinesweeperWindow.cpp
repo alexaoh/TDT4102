@@ -2,7 +2,8 @@
 #include <random>
 
 MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines, const string& title) :
-	Graph_lib::Window{xy, width * cellSize, height*cellSize, title}, width{width}, height{height}, mines{mines}
+	Graph_lib::Window{xy, width * cellSize, height*cellSize, title}, width{width}, height{height}, mines{mines}, 
+	won{Point{0,0},width * cellSize, height*cellSize, ""}, lost{Point{0,0},width * cellSize, height*cellSize, ""}
 	//Initialiser medlemsvariabler, bruker ogsaa konstruktoren til Windowsklassen
 {
 	// Legg til alle tiles paa vinduet
@@ -62,6 +63,7 @@ void MinesweeperWindow::openTile(Point xy) {
 	if (tile.getState() == Cell::closed){
 		tile.open();
 		if (!tile.getIsMine()){
+			tilesOpened++;
 			vector<Point> v{adjacentPoints(xy)};
 			int amountOfMines{countMines(v)};
 			if (!amountOfMines){
@@ -71,14 +73,15 @@ void MinesweeperWindow::openTile(Point xy) {
 			} else tile.setAdjMines(amountOfMines);
 		}
 		else{ //The game is lost. 
-			cout << "You just lost" << endl;
-			lost.draw_lines();
-			lost.set_font_size(100);
 			attach(lost);
+			lost.put("OMG, you just lost my friend!");
 			redraw();
 			flush();
-
 		}		
+	}
+	if (tilesOpened==(tiles.size()-mines)){ //Game is won. 
+		attach(won);
+		won.put("Congratx, you just won the entire game my friend!");
 	}
 	
 }
