@@ -14,6 +14,8 @@ public:
 	MinesweeperWindow(Point xy, int width, int height, int mines, const string& title);
 private:
 
+	Point xy;
+	string title;
 	const int width;//width i miner 
 	const int height;//heigth i miner
 	const int mines;//Antall miner
@@ -39,11 +41,23 @@ private:
 
 	//callback funksjon for tile knappen
 	static void cb_click(Address, Address pw);
-	static void cb_restart(Address, Address pw); //tried making this instead
+	static void cb_restart(Address, Address pw); 
+	static void cb_quit(Address, Address pw);
 
 	Out_box won;
 	Out_box lost;
+	Out_box numOfMines;
 
 	int tilesOpened{0}; //Counts how many tiles that have been opened. 
-	
+	int tilesFlagged{0}; //Counts how many tiles that are flagged. 
+
+	void flagMinesWhenWinner();
+	void crossMinesWhenLoser(); 
+
+	bool gameEnded{false}; //Used to check whether game is finished or not. 
+	Button restartBtn;
+	Button quitBtn;
+
+	int restart();
+	void quit();
 };

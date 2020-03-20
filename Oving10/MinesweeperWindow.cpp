@@ -3,7 +3,10 @@
 
 MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines, const string& title) :
 	Graph_lib::Window{xy, width * cellSize, height*cellSize, title}, width{width}, height{height}, mines{mines}, 
-	won{Point{0,0},width * cellSize, height*cellSize, ""}, lost{Point{0,0},width * cellSize, height*cellSize, ""}
+	won{Point{20,20},width * cellSize-50, height*cellSize/10, ""}, lost{Point{20,20},width * cellSize-50, height*cellSize/10, ""}, 
+	numOfMines{Point{10,10}, width * cellSize/20, height*cellSize/20, "Num of mines unflagged:"},  
+	restartBtn{Point{50,100}, 50,50, "Restart", cb_restart}, 
+	quitBtn{Point{0,100}, 50, 50, "Quit", cb_quit}, xy{xy}, title{title}
 	//Initialiser medlemsvariabler, bruker ogsaa konstruktoren til Windowsklassen
 {
 	// Legg til alle tiles paa vinduet
@@ -29,6 +32,10 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 	// Fjern window reskalering
 	resizable(nullptr);
 	size_range(x_max(), y_max(), x_max(), y_max());
+
+	attach(numOfMines);
+	numOfMines.hide();
+
 }
 
 int MinesweeperWindow::countMines(vector<Point> points) const {
@@ -75,21 +82,43 @@ void MinesweeperWindow::openTile(Point xy) {
 		else{ //The game is lost. 
 			attach(lost);
 			lost.put("OMG, you just lost my friend!");
-			redraw();
-			flush();
+			crossMinesWhenLoser();
+			this->redraw();
+			gameEnded = true;
 		}		
 	}
 	if (tilesOpened==(tiles.size()-mines)){ //Game is won. 
 		attach(won);
-		won.put("Congratx, you just won the entire game my friend!");
+		won.put("Congratz, you just won the entire game my friend!");
+		flagMinesWhenWinner();
+		this->redraw();
+		gameEnded = true;
 	}
 	
 }
 
 void MinesweeperWindow::flagTile(Point xy) {
 	Tile& tile = at(xy);
+	int minesLeft{0}; //Used to count number of mines left, that are not flagged.
 	if (tile.getState() != Cell::open){
+		if (tile.getState() == Cell::flagged){
+			tilesFlagged--;
+		}
+		else{
+			tilesFlagged++;
+		}
 		tile.flag();
+		if (tile.getIsMine()){
+			//Need to find remaining mines:
+			for (auto x : tiles){
+				if (x->getIsMine() && x->getState() == Cell::closed){ 
+					minesLeft++;
+				}
+			}
+			numOfMines.put(minesLeft);
+			numOfMines.redraw();
+			numOfMines.show();
+		}
 	}
 }
 
@@ -112,9 +141,45 @@ void MinesweeperWindow::cb_click(Address, Address pw)
 		win.flagTile(xy);
 		break;
 	}
+
+	if (win.gameEnded){
+		win.attach(win.quitBtn);
+		win.attach(win.restartBtn);
+		win.redraw();
+	}
 	win.flush();
 }
 
 void MinesweeperWindow::cb_restart(Address, Address pw){
+	reference_to<MinesweeperWindow>(pw).restart();
+}
 
+void MinesweeperWindow::cb_quit(Address, Address pw){
+	reference_to<MinesweeperWindow>(pw).quit();
+}
+
+void MinesweeperWindow::flagMinesWhenWinner(){
+	for (auto x : tiles){
+		if (x->getIsMine() && x->getState() != Cell::flagged){
+			flagTile(x->loc);
+		}
+	}
+
+}
+void MinesweeperWindow::crossMinesWhenLoser(){ //Burde satt sammen disse til samme funk. 
+	for (auto x : tiles){
+		if (x->getIsMine() ){
+			openTile(x->loc);
+		}
+	}
+}
+
+void MinesweeperWindow::quit(){
+	this->hide();
+}
+
+int MinesweeperWindow::restart(){
+	this->hide();
+	MinesweeperWindow win{xy,width, height, mines, title};
+	return gui_main();
 }

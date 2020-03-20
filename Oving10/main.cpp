@@ -4,9 +4,9 @@ int main()
 {
 
 	Fl::background(200, 200, 200);
-	constexpr int width = 5;
-	constexpr int height = 5;
-	constexpr int mines = 3;
+	constexpr int width = 15;
+	constexpr int height = 15;
+	constexpr int mines = 5;
 	srand(static_cast<unsigned int>(time(nullptr)));
 	
 	Point startPoint{ 200,300 };

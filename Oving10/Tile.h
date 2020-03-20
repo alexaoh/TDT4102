@@ -17,7 +17,7 @@ public:
 	Tile(Point pos, int size, Graph_lib::Callback cb, bool is=false)
 		:Button{pos, size, size, "", cb}, isMine{is} {};
 	
-	Cell getState() const {return state; };
+	Cell getState() const { return state; };
 	bool getIsMine() const { return isMine; };
 	void setIsMine(bool is) { isMine = is; };
 
