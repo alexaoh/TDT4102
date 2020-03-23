@@ -1,6 +1,8 @@
-#include <iostream>
+#include "task1.h"
 
-int main()
-{
-	
+int main(){
+    testTask1Vec();
+    cout << endl;
+    testTask1Set();
+
 }
