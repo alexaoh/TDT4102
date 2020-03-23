@@ -1,5 +1,8 @@
 # Questions to the tasks
 
+1. Check what LF says about the theory tasks especially!
+
+2. Why use friend keyword for operator<< when I am denied access to private variables anyway?
 
 ***Check LF!!*** 
 
