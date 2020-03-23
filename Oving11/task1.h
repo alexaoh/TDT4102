@@ -28,6 +28,7 @@ void replaceVec(vector<string>& vec, string old, string replacement){
         oldFound = find(oldFound, vec.end(), old);
         if (oldFound != vec.end()){
             vec.erase(oldFound);
+            //Får segmentation error hvis disse snus om på. Hvorfor det? Gir ikke mening utfra hvordan insert og erase er definert!
             vec.insert(oldFound, replacement);
         }
         oldFound++;
