@@ -5,6 +5,7 @@
 2. Why use friend keyword for operator<< when I am denied access to private variables anyway?
 
 3. Try to understand insert() in LinkedList once more!! Confusing stuff. 
+
 ***Check LF!!*** 
 
 ## Recommended theory (PPP):

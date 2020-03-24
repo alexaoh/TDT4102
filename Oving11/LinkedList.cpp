@@ -1,3 +1,4 @@
+/*
 #include "LinkedList.h"
 
 std::ostream & operator<<(std::ostream & os, const LinkedList::Node& node){
@@ -43,3 +44,5 @@ std::ostream& operator<<(std::ostream& os, const LinkedList::LinkedList& list){
     }
     return os;
 }
+
+*/

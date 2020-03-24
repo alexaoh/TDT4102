@@ -9,6 +9,7 @@
         "ostream": "cpp",
         "system_error": "cpp",
         "bitset": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "new": "cpp"
     }
 }

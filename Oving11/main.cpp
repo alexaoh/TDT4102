@@ -78,6 +78,7 @@ int main(){
     */
     // For at denne skal virke for andre typer, må >-operatoren være overlastet og fungerende! 
 
+    /*
     vector<int> a{1,2,3,4,5,6,7};
     shuffle(a);
     printVector(a);
@@ -91,7 +92,11 @@ int main(){
     vector<string> c{"one", "two", "three", "four"};
     shuffle(c);
     printVector(c);
+    */
 
-
+    //Task 5: 
+    /*
+    b) Er det noen spesielle hensyn som må tas for at en datatype skal kunne brukes med LinkedList?
+    Mitt svar: Datatypen må ha ==operatoren definert, for at medlemsfunksjonene skal fungere. 
+    */
 }
-
