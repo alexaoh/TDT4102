@@ -1,6 +1,7 @@
 #include "task1.h"
 #include "task2.h"
 #include "LinkedList.h"
+#include "Temp4Func.h"
 
 int main(){
     /* //task 1
@@ -64,5 +65,33 @@ int main(){
       er litt mer krevende, da det å lages en unique ptr til det tidligere bakerste elementet. Deretter vil det 
       fjernes elementer fra toppen, slik som i stack. Håper dette er et tilfredsstillende svar på oppgaven. 
     */  
+
+    //Task 4
+    /*
+    int a = 1; 
+    int b = 2;
+    int x = maximum(a,b);
+    double d = 2.4;
+    double e = 3.2; 
+    double f = maximum(d,e);
+    std::cout << x << " " << f << endl;
+    */
+    // For at denne skal virke for andre typer, må >-operatoren være overlastet og fungerende! 
+
+    vector<int> a{1,2,3,4,5,6,7};
+    shuffle(a);
+    printVector(a);
+
+    cout << endl; 
+    vector<double> b{1.2,2.2,3.3,4.2};
+    shuffle(b);
+    printVector(b);
+
+    cout << endl; 
+    vector<string> c{"one", "two", "three", "four"};
+    shuffle(c);
+    printVector(c);
+
+
 }
 
