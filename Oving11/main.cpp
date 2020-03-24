@@ -41,5 +41,28 @@ int main(){
        på at man releaser eller mover eierskapet til pointeren over til et annet element. 
        Kan ikke tenke meg en annen grunn 
        enn dette (?). 
-    */
+    
+    b) Svar på følgende teorispørsmål: 
+    * Du har i de tidligere øvingene hovedsakelig brukt std::vector som beholder.
+      Imidlertid vil det i noen tilfeller være et bedre valg å bruke liste. Når er
+      lenkede lister bedre, og hvorfor? 
+    Mitt svar: Bedre når du vil kunne beholde pointere til elementene slik de opprinnelig var definert,
+      slik at ingen iteratorer blir ugyldige, slik som kan skje når man f.eks sletter 
+      eller inserter et element i en vektor. Fordi størrelsen til vektor må endres under disse 
+      operasjonene, vil pekerne ofte kunne bli ugyldige (peke til et annet objekt enn antatt). 
+      I tillegg vil det gå raskere å inserte og slette i en liste, fordi man kun trenger å 
+      endre på noen pekere per objekt, i stedet for å passe på at vektoren har rett size 
+      og nok minne f.eks. Man kan derimot ikke bruke random oppslag i lister. 
+    * Den lenkede listen du nettopp lagde kan brukes til å implementere andre datastrukturer
+      på en lett måte. Forklar hvordan du ville brukt LinkedList-klassen for å implementere
+      en stack eller queue.
+    Nitt svar: En stack er LIFO, mens en queue er FIFO. Dette er lenkede lister også, bare at de 
+      trenger ekstra medlemsfunksjoner for å fungere som man ønsker. Stack er veldig enkel å implementere; 
+      man trenger å kunne legge elementer til bakerst, og ha en unique pointer fra den forrige som var øverst, 
+      til den ny øverste. Når en node skal fjernes er det bare å fjerne denne pointeren og ha en pointer til end() igjen. 
+      Queue kan implementeres på nesten samme måte; Her skal det legges til elementer bakerst i stedet. Dette 
+      er litt mer krevende, da det å lages en unique ptr til det tidligere bakerste elementet. Deretter vil det 
+      fjernes elementer fra toppen, slik som i stack. Håper dette er et tilfredsstillende svar på oppgaven. 
+    */  
 }
+

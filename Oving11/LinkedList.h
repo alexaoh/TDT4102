@@ -3,6 +3,7 @@
 #include <memory>
 #include <ostream>
 #include <string>
+#include <algorithm>
 
 // test code 
 void testLinkedList();

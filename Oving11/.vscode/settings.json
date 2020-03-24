@@ -2,6 +2,13 @@
     "files.associations": {
         "iterator": "cpp",
         "*.tcc": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cstddef": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ostream": "cpp",
+        "system_error": "cpp",
+        "bitset": "cpp",
+        "iomanip": "cpp"
     }
 }
