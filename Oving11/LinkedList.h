@@ -11,6 +11,9 @@ void testLinkedList();
 
 namespace LinkedList {
 template<typename T>
+class LinkedList;
+
+template<typename T>
 class Node {
 private:
     const T value;    // The data held by the LinkedList
@@ -40,11 +43,9 @@ public:
         return os;
     }
 
-    friend class LinkedList;
+    friend class LinkedList<T>;
 };
-}// namespace LinkedList
-namespace Linker{
-using namespace LinkedList;
+
 template<typename T>
 class LinkedList {
 private:
@@ -110,7 +111,7 @@ public:
     }
 
     // write a string representation of the list to the ostream
-    friend std::ostream & operator<<(std::ostream & os, const LinkedList& list){
+    friend std::ostream & operator<<(std::ostream & os, const LinkedList<T>& list){
         for (Node<T>* it = list.begin(); it != list.end(); ++it){
             if (it->getNext() == list.end()){
                 os << it->getValue();
@@ -119,4 +120,4 @@ public:
         return os;
     }
 };
-}// namespace Linker;
+}// namespace LinkedList;
