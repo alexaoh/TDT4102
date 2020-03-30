@@ -3,6 +3,10 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <FL/Fl_Widget.H>
+#include <FL/fl_draw.H>
+#include <FL/Fl.H>
+
 
 constexpr int screenWidth = 1000;
 constexpr int screenHeight = 600;
@@ -24,3 +28,26 @@ public:
 };
 
 double angleBetween(std::pair<double, double> vec1,std::pair<double, double> vec2);
+
+
+class Vehicle : public Fl_Widget{
+protected: 
+	PhysicsState state; 
+	Vehicle(double x, double y, double angle):Fl_Widget{10, 10, 10, 10}{ //Den ville ikke initialisere med en Initializer list (?) Sjekk LF for dette. 
+		state.x = x;
+		state.y = y;
+		state.angle = angle;
+	};
+	virtual std::pair<double, double> steer() const = 0;
+	virtual void drawBody() = 0;
+	
+public: 
+	virtual void draw() final;
+};
+
+class PlayerVehicle : public Vehicle{
+public: 
+	PlayerVehicle(double x, double y, double angle):Vehicle{x, y, angle}{};
+	void drawBody() override;
+	std::pair<double, double> steer() const override;
+};

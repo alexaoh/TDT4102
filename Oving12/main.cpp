@@ -13,7 +13,7 @@ int main() {
 
 	// Instansier nye objekt mellom dei to etterfølgjande linjene.
 	// -----------------------------------------------------------------------------
-
+	PlayerVehicle vec1{100, 100, 25};
 	// -----------------------------------------------------------------------------
 
 	win->end();
@@ -30,4 +30,6 @@ int main() {
 		Fl::check();	// Handterar input
 		Fl::redraw();	// Kallar draw
 	}
+
+	
 }
