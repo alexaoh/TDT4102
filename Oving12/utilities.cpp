@@ -44,7 +44,7 @@ void Vehicle::draw(){
     */
     std::pair<double, double> pair = steer(); 
     state.update(pair.first, pair.second);
-    if (state.x > screenWidth) state.x = 0;
+    if (state.x > screenWidth) state.x = 0; //Denne fungerer heller ikke? Jeg gjør jo det samme som i de to som skjekker 0?
     if (state.x < 0) state.x = 0;
     if (state.y < 0) state.y = 0;
     if (state.y > screenHeight) state.y = 0; //Får den ikke til å stoppe nede og til høyre på skjermen? Gir ikke mening?
@@ -53,7 +53,11 @@ void Vehicle::draw(){
 
 void PlayerVehicle::drawBody(){
     fl_color(FL_BLUE);
-    fl_pie(state.x, state.y, 30, 30, 0, 360);
+    fl_pie(state.x, state.y, vehicleRadius*2, vehicleRadius*2, 0, 360);
+    fl_color(FL_MAGENTA);
+    fl_begin_polygon(); //Figure out this later! 
+    fl_arc(state.x+cos(state.angle), state.y+sin(state.angle), vehicleRadius, 0, 180);
+    fl_end_polygon();
 }
 
 std::pair<double, double> PlayerVehicle::steer() const {
@@ -66,4 +70,19 @@ std::pair<double, double> PlayerVehicle::steer() const {
     else if (Fl::event_key(FL_Down) || Fl::event_key('S')) return std::make_pair(translationAcceleration, angularAcceleration);
     else if (Fl::event_key(FL_Right) || Fl::event_key('D')) return std::make_pair(translationAcceleration2, -angularAcceleration2);
     else return std::make_pair(0,0); 
+    //Also make another Vehicle class for another vehicle! Only use on set of controls per vehicle (of course)!
+}
+
+Track::Track():Fl_Widget{10, 10, 10, 10}{
+    //Make random track and push to goals-vector!
+}
+
+void Track::draw(){
+    //Draw the points from goals-vector!
+    fl_color(FL_BLACK);
+    //for point in goals: Draw arc
+}
+
+bool circleCollision(double delX, double delY, double sumR){
+    //Maths
 }

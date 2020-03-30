@@ -40,9 +40,8 @@ protected:
 	};
 	virtual std::pair<double, double> steer() const = 0;
 	virtual void drawBody() = 0;
-	
 public: 
-	virtual void draw() final;
+	virtual void draw() final; //Hvorfor ikke void draw() override, sånn som i Track-klassen? 
 };
 
 class PlayerVehicle : public Vehicle{
@@ -51,3 +50,12 @@ public:
 	void drawBody() override;
 	std::pair<double, double> steer() const override;
 };
+
+class Track : public Fl_Widget{
+	std::vector<std::pair<double, double>> goals;
+public: 
+	Track();
+	void draw() override;
+};
+
+bool circleCollision(double delX, double delY, double sumR); //Avgjør om to sirkler overlapper. 
