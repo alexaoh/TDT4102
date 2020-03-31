@@ -61,16 +61,15 @@ void PlayerVehicle::drawBody(){
 }
 
 std::pair<double, double> PlayerVehicle::steer() const {
-    double translationAcceleration{0.1};
-    double translationAcceleration2{0.1};
-    double angularAcceleration{0.7};
-    double angularAcceleration2{0.4};
-    if (Fl::event_key(FL_Up) || Fl::event_key('W')) return std::make_pair(translationAcceleration, -angularAcceleration);
-    else if (Fl::event_key(FL_Left) || Fl::event_key('A')) return std::make_pair(translationAcceleration2, angularAcceleration2);
-    else if (Fl::event_key(FL_Down) || Fl::event_key('S')) return std::make_pair(translationAcceleration, angularAcceleration);
-    else if (Fl::event_key(FL_Right) || Fl::event_key('D')) return std::make_pair(translationAcceleration2, -angularAcceleration2);
+    double translationAccelerationGas{0.7};
+    double translationAccelerationTurn{0.1};
+    double translationAccelerationBrake{-0.9};
+    double angularAcceleration{0.9};
+    if (Fl::event_key(FL_Up)) return std::make_pair(translationAccelerationGas, 0);
+    else if (Fl::event_key(FL_Left)) return std::make_pair(translationAccelerationTurn, -angularAcceleration);
+    else if (Fl::event_key(FL_Right)) return std::make_pair(translationAccelerationTurn, angularAcceleration);
+    else if (Fl::event_key(FL_Down)) return std::make_pair(translationAccelerationBrake, 0);
     else return std::make_pair(0,0); 
-    //Also make another Vehicle class for another vehicle! Only use on set of controls per vehicle (of course)!
 }
 
 Track::Track():Fl_Widget{10, 10, 10, 10}{
