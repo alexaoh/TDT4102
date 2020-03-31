@@ -5,7 +5,8 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
 
-#include "utilities.h"
+#include "Vehicle.h"
+#include "Track.h"
 
 int main() {
 	auto win = std::make_unique<Fl_Double_Window>(screenWidth, screenHeight, "NASCAR");
@@ -13,7 +14,8 @@ int main() {
 
 	// Instansier nye objekt mellom dei to etterfølgjande linjene.
 	// -----------------------------------------------------------------------------
-	PlayerVehicle vec1{100, 100, 25};
+	PlayerVehicle vec1{100, 100, 0}; //Begynner med null vinkel
+	Track newTrack;
 	// -----------------------------------------------------------------------------
 
 	win->end();
