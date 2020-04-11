@@ -95,4 +95,4 @@ std::string dateToString(const Date& day){
 
 std::ostream& operator<<(std::ostream& out, const Event& rhs){
     
-}
+}  
