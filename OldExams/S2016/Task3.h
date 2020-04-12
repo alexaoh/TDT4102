@@ -18,4 +18,37 @@ public:
     Person{id, email},carType{carType}, freeSeats{freeSeats}{};
 };
 
-//Classes Participant and Meeting are declred in the task description. 
+//Classes Participant and Meeting are declared fully in the task description. 
+
+enum Campus { TRH, AAL, GJO };
+
+class Participant{
+    Person* who;
+    Participant* next;
+public:
+    Participant(Person* who):who{who}, next{nullptr}{};
+    Person* getWho() { return who; }
+    void setNext(Participant* next){ this-> next = next; }
+    Participant* getNext(){ return next; }
+
+};
+
+class Meeting{
+    int day;
+    int start; 
+    int end;
+    Campus location;
+    Person* owner;
+    Driver* driver;
+    Meeting* next;
+    Participant* firstPart;
+public: 
+    Meeting(int day, int start, int end, Campus location, Person* owner);
+    ~Meeting();
+    Meeting* getNext() { return next; }
+    void addParticipant(Person* person);
+    Participant* getParticipants() { return firstPart; }
+    void printCoDriving();
+};
+
+Meeting* allMeetings = nullptr; 
