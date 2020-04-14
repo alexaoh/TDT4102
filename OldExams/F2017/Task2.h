@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 
 class Array2D{
     int xdim;
