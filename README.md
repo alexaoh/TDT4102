@@ -2,4 +2,4 @@
 
 ### https://www.ntnu.edu/studies/courses/TDT4102#tab=omEmnet
 
-##### (Made only for personal use)
+##### (Made exclusively for personal use)
