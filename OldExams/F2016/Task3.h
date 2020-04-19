@@ -1,23 +1,29 @@
 #include <set>
 #include <iostream>
 #include <map>
+#include <algorithm>
+#include <queue>
 
+template<typename T>
 class Graph{
-    std::set<std::string> nodes;
-    std::map<std::string, std::set<std::string>> edges;
+    std::set<T> nodes;
+    std::map<T, std::set<T>> edges;
     bool directed;
 public: 
     Graph(bool directed = false):nodes(), edges(), directed(directed){}
     int sixe() const { return nodes.size(); }
-    int degree(std::string n) { return edges[n].size(); }
-    const std::set<std::string>& getNodes() const { return nodes; }
-    const std::set<std::string>& getEdges(std::string n) { return edges[n]; }
-    void addNode(std::string n);
-    void addEdge(std::string u, std::string v);
-    void removeEdge(std::string u, std::string v);
-    void removeNode(std::string n);
+    int degree(T n) { return edges[n].size(); }
+    const std::set<T>& getNodes() const { return nodes; }
+    const std::set<T>& getEdges(T n) { return edges[n]; }
+    void addNode(T n);
+    void addEdge(T u, T v);
+    void removeEdge(T u, T v);
+    void removeNode(T n);
     int countEdges();
     bool isConnected();
-    int distance(std::string u, std::string v);
-    std::map<std::string, int> traverse(std::string start);
+    int distance(T u, T v);
+    std::map<T, int> traverse(T n);
 };
+
+template<typename T>
+void printNodes(Graph<T>& g);

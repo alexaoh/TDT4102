@@ -91,12 +91,9 @@ void plotSeries(Plot& plt, float** x, float** y, int n, int m){
 Series loadSeries(std::string filename){
     std::ifstream ist{filename};
     if (!ist) throw std::invalid_argument("Cannot open file "+filename);
-    std::string line;
-    getline(ist, line);
-    std::stringstream ss{line};
     int n{0};
     int m{0};
-    ss >> n >> m; 
+    ist >> n >> m; 
     Series s;
     s.n = n; 
     s.m = m;
@@ -107,18 +104,11 @@ Series loadSeries(std::string filename){
         s.x[i] = new float[n];
         s.y[i] = new float[n];
     }   
-    //Se mye mer på denne oppgaven!!
-    for (int ser = 0; ser<m; ++ser){
-        getline(ist, line);
-        std::stringstream ss{line};
-        float value;
-        int i = 0;
-        float xValue = 0.0;
-        while (ss >> value){
-            s.y[ser][i] = value;
-            s.x[ser][i] = xValue;
-            i++;
-            xValue = xValue + 1.0;
+
+    for (int line = 0; line<m; ++line){
+        for (int i = 0; i<n; ++i){
+            ist >> s.y[line][i];
+            s.x[line][i] = line;
         }
     }
     return s;
