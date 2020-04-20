@@ -94,5 +94,54 @@ std::string dateToString(const Date& day){
 }
 
 std::ostream& operator<<(std::ostream& out, const Event& rhs){
-    
+    out << rhs.id << " : " << rhs.name << " @ " << dateToString(rhs.when);
+    return out;
 }  
+
+void printEvents(std::vector<Event*>& events){
+    for (auto x : events){
+        std::cout << *x << std::endl;
+    }
+    std::cout << events.size() << " events."     
+}
+
+void Calendar::addEvent(int id, std::string name, int year, int month, int day){
+    if (std::find(events.begin(), events.end(), id) != events.end()) throw std::invalid_argument(id+" already exists");
+    Date d = {day, month, year};
+    if (!checkDate(d)) throw std::runtime_error("Invalid date");
+    Event* ev = new Event;
+    ev->id = id;
+    ev->name = name;
+    ev->when = d;
+    events[id] = ev;
+}
+
+Calendar::~Calendar(){
+    for (auto pair : events){
+        delete pair.second;
+    }
+}
+
+std::vector<Event*> Calendar::getEvents(int year, int month, int day){
+    std::vector<Event*> returns;
+    for (auto pair : events){
+        if (pair.second->when.d == day && pair.second->when.m == month && pair.second->when.y == year){
+            returns.push_back(pair.second);
+        }  
+    }
+    return returns;
+}
+
+std::vector<Date> Calendar::busyDates(int threshold){
+    std::vector<Date> dates;
+    std::map<Date, int> dateFrek;
+    for (auto event : events){
+        dateFrek[event.second->when]++;
+    }
+    for (auto pair : dateFrek){
+        if (pair.second >= threshold){
+            dates.push_back(pair.first);
+        }
+    }
+    return dates;
+}
