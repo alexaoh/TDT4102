@@ -1,4 +1,4 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. Check out comments in code for testing printStudent() in main() (about cin.ignore and a new-line left in the input-stream!)
 
@@ -16,15 +16,11 @@
 --> Skal den klare å få input som strings også (slik jeg har tenkt)? Eller holder det med chars? Da blir den mye lettere!
 
 > Check getInput in MastermindWindow-class in masterVisual-files. This is solved in another way!
+> LF used for (char ch; str.size() < n && cin >> ch; ). Therefore, it takes both characters in a chain and lone characters. This is the best way to solve this problem, in my humble opinion.  
 
 5. How can i check if guesses <= 0 outside of the scope of the while-loop in playMastermind()? Now it writes "you lost" after the loop, not depending on wheher you lost or not. 
 
-> Fixed! Remember that amountOfGuesses is not constant! Changes made to this variable applies in the playMastermind() scope!
-
-
-### Take a look at the solution from the professors when that is published! I want to see some other solutions to the problems!
-
-### Take a closer look at the graphics that are used towards the end of the course! 
+> Fixed! Remember that amountOfGuesses is not constant! Changes made to this variable applies in the playMastermind() scope! 
 
 ## Recommended theory (PPP):
 ```
