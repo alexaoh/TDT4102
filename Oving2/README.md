@@ -1,4 +1,4 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. How can i set precision when returning a double from a function? E.G. in inputDouble(), task 2d). Seems like the precision of the returned double is random. 
 
