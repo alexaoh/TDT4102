@@ -1,4 +1,4 @@
-# Questions to the tasks:
+# Questions to the tasks (SOLVED)
 
 1. Am i supposed to use boolalpha in oppgave f) to get the correct return values?
 > This is a possibility if you want to output "True/False" instead of "1/0". 
