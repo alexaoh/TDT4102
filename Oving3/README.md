@@ -1,4 +1,4 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. "Utskrift av tid": The modulo operator does not work with other than integers. Any suggestions? (I brute forced it, writing the modulo operation manually. There exists a modulo operator for floats also: fmod() from \<cmath\>, see page 231 in PPP. 
 
