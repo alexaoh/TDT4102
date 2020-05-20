@@ -1,6 +1,8 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. Question to the notion inheritance itself: Føles litt meningsløst å måtte skrive de private medlemsvariablene, som er helt like i alle klassene, i både EmptyFace, SadFace og AngryFace.etc. Kan dette unngås? Eller arver de to andre kun public-delen av EmptyFace?
+
+> They could inherit from each other. If they all inhritd from another class (like in my code) they must be rewritten (just as described in the Q). 
 
 2. Example: SadFace : EmptyFace : Face (just to show how the inheritance works.). Does SadFace::attach_to() override EmptyFace::attach_to() or Face::attach_to() as it is now (with no virtual keyword in front of Emptyface::attach_to())? How about when the virtual keyword is there? Does it change? I can't really find the answer my self. 
 ```
@@ -19,10 +21,6 @@ Yes, det stemmer, auto gir en pointer til hvert objekt av typen i vektoren. Dett
 ```
 This is correct! The keyword override explicitly declares to the compiler that a function is meant to override another function (a virtual function). This way we can get the compiler to help check that it works as it should. 
 ```
-
-
-
-***Check LF!!*** 
 
 ## Recommended theory (PPP):
 ```
