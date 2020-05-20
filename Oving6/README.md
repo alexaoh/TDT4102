@@ -1,6 +1,8 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. Q about the constructor of CourseCatalog: Should i define one for it? Or should it just use a default constructor when I don't want to pass arguments when initializing an object of the class?
+
+> I don't need to define one here, as the default one will suffice. 
 
 2. How to readFromFile in to CourseCatalog? Does not work :(
 
@@ -12,8 +14,7 @@ I now have two different soultions for this (they have the same functionality):
 
 3. Which header-files am I actually using when graphing in task 5? Not too clearly stated in the book, can't find it there :(
 
-
-***Check LF!!*** 
+> Using <Window.h> and <Graph.h>, but not <GUI.h>
 
 ## Recommended theory (PPP):
 ```
