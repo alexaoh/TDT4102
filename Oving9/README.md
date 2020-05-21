@@ -1,4 +1,4 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. Take a closer look at the way the matrix (table-member) is defined. Really understand how it works!
 
@@ -18,8 +18,6 @@ Returns *this because the operator has a Matrix-reference as return value. There
 My solution is correct now!
 
 ```
-
-***Check LF!!*** 
 
 ## Recommended theory (PPP):
 ```
