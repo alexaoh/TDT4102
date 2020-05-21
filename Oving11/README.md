@@ -1,12 +1,16 @@
-# Questions to the tasks
+# Questions to the tasks (SOLVED)
 
 1. Check what LF says about the theory tasks especially!
 
+> Yep!
+
 2. Why use friend keyword for operator<< when I am denied access to private variables anyway?
+
+> Good question. 
 
 3. Try to understand insert() in LinkedList once more!! Confusing stuff. 
 
-***Check LF!!*** 
+> Yep!
 
 ## Recommended theory (PPP):
 ```
